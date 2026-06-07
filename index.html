@@ -1821,4 +1821,20 @@ function renderStockLog() {
         ? '<tr><td colspan="8" class="text-center text-muted py-3">ไม่พบรายการ</td></tr>'
         : data.map(r => {
             const ch = +r.change;
-            const chStr = ch>0 ? `<span class
+            const chStr = ch>0 ? `<span class="text-success">+${ch}</span>` : `<span class="text-danger">${ch}</span>`;
+            return `<tr>
+                <td class="small text-muted">${esc(r.datetime)}</td>
+                <td><div class="fw-semibold small">${esc(r.name)}</div></td>
+                <td><span class="badge ${typeColor[r.type]||'bg-secondary'} bg-opacity-10 border text-dark small">${esc(r.type)}</span></td>
+                <td><span class="badge ${sBadge(r.store)} small">${sName(r.store)}</span></td>
+                <td class="text-center small">${r.before}</td>
+                <td class="text-center small fw-bold">${chStr}</td>
+                <td class="text-center small">${r.after}</td>
+                <td class="small text-muted">${esc(r.ref)}</td>
+            </tr>`;
+        }).join('');
+}
+
+</script>
+</body>
+</html>
