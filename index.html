@@ -7,7 +7,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=hSarabun:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap');
         * { font-family: 'Sarabun', sans-serif; }
         :root { --sidebar-width: 235px; }
         body { background: #f1f5f9; min-height: 100vh; }
@@ -336,13 +336,13 @@
                             <option>รับจำนำ/เทิร์น</option>
                         </select>
                         <input type="text" class="form-control form-control-sm" id="stk-search" placeholder="🔍 ค้นหา..." onkeyup="renderStock()" style="width:160px;">
-                        <button class="btn btn-sm btn-primary" onclick="openStockModal()"><i class="bi bi-plus-lg me-1"></i>เพิ่มสินค้า</button>
+                        <button class="btn btn-sm btn-outline-secondary me-1" onclick="openStockLog()" title="ประวัติสต๊อค"><i class="bi bi-clock-history me-1"></i>ประวัติ</button><button class="btn btn-sm btn-primary" onclick="openStockModal()"><i class="bi bi-plus-lg me-1"></i>เพิ่มสินค้า</button>
                     </div>
                 </div>
                 <div class="table-responsive">
                     <table class="table table-hover mb-0">
                         <thead><tr><th>ชื่อสินค้า</th><th>ยี่ห้อ/รุ่น</th><th>ประเภท</th><th>ราคาทุน</th><th>ราคาขาย</th><th>กำไร%</th><th>จำนวนทั้งหมด</th><th>คงเหลือ</th><th>รอเคลม</th><th>ร้าน</th><th>จัดการ</th></tr></thead>
-                        <tbody id="stk-tbody"><tr><td colspan="11" class="text-center text-muted py-4"><span class="spinner-border spinner-border-sm me-2"></span>กำลังโหลด...</td></tr></tbody>
+                        <tbody id="stk-tbody"><tr><td colspan="9" class="text-center text-muted py-4"><span class="spinner-border spinner-border-sm me-2"></span>กำลังโหลด...</td></tr></tbody>
                     </table>
                 </div>
                 <div class="p-3 border-top small text-muted" id="stk-summary"></div>
@@ -419,7 +419,7 @@
                 </div>
                 <div class="table-responsive">
                     <table class="table table-hover mb-0">
-                        <thead><tr><th>วันที่</th><th>สินค้า</th><th>ประเภท</th><th>ร้าน</th><th>จำนวน</th><th>ทุน/ชิ้น</th><th>ราคาขาย</th><th>กำไร</th><th>หมายเหตุ</th><th></th></tr></thead>
+                        <thead><tr><th>วันที่</th><th>สินค้า</th><th>ประเภท</th><th>ร้าน</th><th>จำนวน</th><th>ทุน/ชิ้น</th><th>ราคาขาย</th><th>กำไร</th><th>หมายเหตุ</th><th>ประเภทรายได้</th><th>ลบ</th></tr></thead>
                         <tbody id="sl-tbody"></tbody>
                         <tfoot id="sl-tfoot" class="fw-bold table-light"></tfoot>
                     </table>
@@ -791,79 +791,163 @@
     </div>
 </div>
 
+
+<!-- ===== PAWN INCOME MODAL ===== -->
+<div class="modal fade" id="pawnIncomeModal" tabindex="-1">
+  <div class="modal-dialog"><div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="pi-modal-title">บันทึกรายได้</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+    </div>
+    <div class="modal-body">
+      <div class="alert alert-light border mb-3 py-2"><strong id="pi-item-name" class="text-primary"></strong></div>
+      <div class="row g-2">
+        <div class="col-6">
+          <label class="form-label small fw-semibold">วันที่</label>
+          <input type="date" class="form-control form-control-sm" id="pi-date">
+        </div>
+        <div class="col-6">
+          <label class="form-label small fw-semibold">ประเภทรายได้</label>
+          <input type="text" class="form-control form-control-sm" id="pi-type" readonly>
+        </div>
+        <div class="col-6">
+          <label class="form-label small fw-semibold">จำนวนเงินที่รับ (฿)</label>
+          <input type="number" class="form-control form-control-sm" id="pi-amount" placeholder="0" min="0">
+        </div>
+        <div class="col-6">
+          <label class="form-label small fw-semibold">ต้นทุน/ราคาจำนำ (฿)</label>
+          <input type="number" class="form-control form-control-sm" id="pi-cost" placeholder="0" min="0">
+        </div>
+        <div class="col-12">
+          <label class="form-label small fw-semibold">หมายเหตุ</label>
+          <input type="text" class="form-control form-control-sm" id="pi-note" placeholder="หมายเหตุ...">
+        </div>
+      </div>
+      <input type="hidden" id="pi-store">
+      <input type="hidden" id="pi-mode">
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary btn-sm" data-bs-dismiss="modal">ยกเลิก</button>
+      <button class="btn btn-success btn-sm" onclick="savePawnIncome()"><i class="bi bi-check-circle me-1"></i>บันทึกรายได้</button>
+    </div>
+  </div></div>
+</div>
+
 <!-- ===== CLAIM MODAL ===== -->
 <div class="modal fade" id="claimModal" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title fw-bold"><i class="bi bi-exclamation-triangle-fill text-warning me-2"></i>แจ้งเคลมสินค้า</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-      <div class="modal-body">
-        <input type="hidden" id="claim-row">
-        <p class="fw-semibold mb-1" id="claim-product-name"></p>
-        <p class="text-muted small mb-3">คงเหลือ (เหลือ): <span id="claim-available" class="fw-bold text-success"></span> ชิ้น</p>
-        <label class="form-label">จำนวนที่จะเคลม</label>
-        <input type="number" class="form-control" id="claim-qty-input" min="1" value="1">
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-secondary" data-bs-dismiss="modal">ยกเลิก</button>
-        <button class="btn btn-warning fw-semibold" onclick="saveClaimItem()"><i class="bi bi-exclamation-circle me-1"></i>ยืนยันเคลม</button>
-      </div>
+  <div class="modal-dialog"><div class="modal-content">
+    <div class="modal-header bg-warning text-dark">
+      <h5 class="modal-title"><i class="bi bi-exclamation-triangle me-2"></i>แจ้งเคลมสินค้า</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
     </div>
-  </div>
+    <div class="modal-body">
+      <p class="fw-semibold" id="claim-name"></p>
+      <div class="mb-3">
+        <label class="form-label small">จำนวนที่ขายได้ (คงเหลือ)</label>
+        <input type="text" class="form-control form-control-sm" id="claim-available" readonly>
+      </div>
+      <div class="mb-3">
+        <label class="form-label small fw-semibold">จำนวนที่จะเคลม</label>
+        <input type="number" class="form-control" id="claim-qty" min="1" placeholder="0">
+      </div>
+      <input type="hidden" id="claim-row">
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary btn-sm" data-bs-dismiss="modal">ยกเลิก</button>
+      <button class="btn btn-warning btn-sm" onclick="saveClaimItem()"><i class="bi bi-exclamation-triangle me-1"></i>ยืนยันเคลม</button>
+    </div>
+  </div></div>
 </div>
 
 <!-- ===== RECEIVE CLAIM MODAL ===== -->
 <div class="modal fade" id="receiveClaimModal" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title fw-bold"><i class="bi bi-arrow-return-left text-success me-2"></i>รับคืนเคลม</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-      <div class="modal-body">
-        <input type="hidden" id="rclaim-row">
-        <p class="fw-semibold mb-1" id="rclaim-product-name"></p>
-        <p class="text-muted small mb-3">รอเคลมอยู่: <span id="rclaim-pending" class="fw-bold text-warning"></span> ชิ้น</p>
-        <label class="form-label">จำนวนที่รับคืน</label>
-        <input type="number" class="form-control" id="rclaim-qty-input" min="1">
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-secondary" data-bs-dismiss="modal">ยกเลิก</button>
-        <button class="btn btn-success fw-semibold" onclick="saveReceiveClaim()"><i class="bi bi-check-circle me-1"></i>ยืนยันรับคืน</button>
-      </div>
+  <div class="modal-dialog"><div class="modal-content">
+    <div class="modal-header bg-success text-white">
+      <h5 class="modal-title"><i class="bi bi-arrow-return-left me-2"></i>รับคืนเคลม</h5>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
     </div>
-  </div>
+    <div class="modal-body">
+      <p class="fw-semibold" id="receive-claim-name"></p>
+      <div class="mb-3">
+        <label class="form-label small">รอเคลมอยู่</label>
+        <input type="text" class="form-control form-control-sm" id="receive-claim-pending" readonly>
+      </div>
+      <div class="mb-3">
+        <label class="form-label small fw-semibold">จำนวนที่รับคืน</label>
+        <input type="number" class="form-control" id="receive-claim-qty" min="1" placeholder="0">
+      </div>
+      <input type="hidden" id="receive-claim-row">
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary btn-sm" data-bs-dismiss="modal">ยกเลิก</button>
+      <button class="btn btn-success btn-sm" onclick="saveReceiveClaim()"><i class="bi bi-arrow-return-left me-1"></i>รับคืน</button>
+    </div>
+  </div></div>
 </div>
 
 <!-- ===== RESTOCK MODAL ===== -->
 <div class="modal fade" id="restockModal" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title fw-bold"><i class="bi bi-cart-plus-fill text-primary me-2"></i>สั่งซื้อเพิ่ม</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+  <div class="modal-dialog"><div class="modal-content">
+    <div class="modal-header bg-info text-dark">
+      <h5 class="modal-title"><i class="bi bi-cart-plus me-2"></i>สั่งซื้อเพิ่ม</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+    </div>
+    <div class="modal-body">
+      <p class="fw-semibold" id="restock-name"></p>
+      <div class="mb-3">
+        <label class="form-label small">จำนวนปัจจุบัน</label>
+        <input type="text" class="form-control form-control-sm" id="restock-current" readonly>
       </div>
-      <div class="modal-body">
-        <input type="hidden" id="restock-row">
-        <p class="fw-semibold mb-1" id="restock-product-name"></p>
-        <p class="text-muted small mb-3">จำนวนปัจจุบัน: <span id="restock-current-qty" class="fw-bold"></span> ชิ้น</p>
-        <div class="mb-3">
-          <label class="form-label">จำนวนที่สั่งซื้อเพิ่ม <span class="text-danger">*</span></label>
-          <input type="number" class="form-control" id="restock-qty-input" min="1" placeholder="จำนวนชิ้น">
-        </div>
-        <div class="mb-2">
-          <label class="form-label">ราคาทุนใหม่ <small class="text-muted">(ถ้าไม่กรอก ใช้ราคาเดิม)</small></label>
-          <input type="number" class="form-control" id="restock-cost-input" placeholder="ราคาทุน/ชิ้น (ไม่บังคับ)">
-        </div>
+      <div class="mb-3">
+        <label class="form-label small fw-semibold">จำนวนที่สั่งเพิ่ม</label>
+        <input type="number" class="form-control" id="restock-qty" min="1" placeholder="0">
       </div>
-      <div class="modal-footer">
-        <button class="btn btn-secondary" data-bs-dismiss="modal">ยกเลิก</button>
-        <button class="btn btn-primary fw-semibold" onclick="saveRestock()"><i class="bi bi-bag-plus me-1"></i>ยืนยันสั่งซื้อ</button>
+      <div class="mb-3">
+        <label class="form-label small">ราคาทุนใหม่ (ถ้าเปลี่ยน, ฿)</label>
+        <input type="number" class="form-control form-control-sm" id="restock-cost" placeholder="เว้นว่างถ้าราคาทุนเดิม" min="0">
+      </div>
+      <input type="hidden" id="restock-row">
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary btn-sm" data-bs-dismiss="modal">ยกเลิก</button>
+      <button class="btn btn-info btn-sm text-dark" onclick="saveRestock()"><i class="bi bi-cart-plus me-1"></i>อัปเดตสต๊อค</button>
+    </div>
+  </div></div>
+</div>
+
+<!-- ===== STOCK LOG MODAL ===== -->
+<div class="modal fade" id="stockLogModal" tabindex="-1">
+  <div class="modal-dialog modal-lg"><div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title"><i class="bi bi-clock-history me-2"></i>ประวัติการเปลี่ยนแปลงสต๊อค</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+    </div>
+    <div class="modal-body p-0">
+      <div class="p-3 border-bottom d-flex gap-2 flex-wrap">
+        <input type="text" class="form-control form-control-sm" id="slog-search" placeholder="ค้นหาสินค้า..." style="max-width:200px;" oninput="renderStockLog()">
+        <select class="form-select form-select-sm" id="slog-type-f" onchange="renderStockLog()" style="max-width:150px;">
+          <option value="">ทุกประเภท</option>
+          <option>ขาย</option>
+          <option>สั่งซื้อ</option>
+          <option>เคลม</option>
+          <option>รับคืนเคลม</option>
+          <option>ปรับยอด</option>
+        </select>
+      </div>
+      <div class="table-responsive" style="max-height:400px;overflow-y:auto;">
+        <table class="table table-sm table-hover mb-0">
+          <thead class="sticky-top bg-white"><tr>
+            <th>วันที่-เวลา</th><th>สินค้า</th><th>ประเภท</th><th>ร้าน</th>
+            <th class="text-center">ก่อน</th><th class="text-center">เปลี่ยน</th><th class="text-center">หลัง</th><th>อ้างอิง</th>
+          </tr></thead>
+          <tbody id="slog-tbody"><tr><td colspan="8" class="text-center text-muted py-3">กำลังโหลด...</td></tr></tbody>
+        </table>
       </div>
     </div>
-  </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary btn-sm" data-bs-dismiss="modal">ปิด</button>
+    </div>
+  </div></div>
 </div>
 
 <!-- ===== TOAST ===== -->
@@ -884,7 +968,7 @@
 
 // ─── CONFIG ───────────────────────────────────────────────
 let CFG = { clientId:'', sheetId:'', shop1:'สาขา 1', shop2:'สาขา 2', scope:'https://www.googleapis.com/auth/spreadsheets https://www.googleapis.com/auth/userinfo.email' };
-const SH = { stock:'สต๊อค', sales:'ยอดขาย', expenses:'ค่าใช้จ่าย', pawn:'รับจำนำ_เทิร์น', repair:'งานซ่อม' };
+const SH = { stock:'สต๊อค', sales:'ยอดขาย', expenses:'ค่าใช้จ่าย', pawn:'รับจำนำ_เทิร์น', repair:'งานซ่อม', stockLog:'ประวัติสต๊อค' };
 
 let tokenClient, accessToken = null;
 let DB = { stock:[], sales:[], expenses:[], pawn:[], repair:[] };
@@ -1005,22 +1089,23 @@ async function ensureSheets() {
     const requests = missing.map(title => ({ addSheet: { properties: { title } } }));
     await api(`${BASE()}:batchUpdate`, 'POST', { requests });
     const hdrs = {
-        [SH.stock]:   [['ID','ชื่อสินค้า','ยี่ห้อ/รุ่น','ประเภท','ราคาทุน','ราคาขาย','จำนวน','ร้าน','หมายเหตุ','วันที่เพิ่ม','จำนวนเคลม']],
-        [SH.sales]:   [['วันที่','เลขที่','ชื่อสินค้า','ประเภท','ร้าน','จำนวน','ราคาทุน/ชิ้น','ราคาขาย','กำไร','หมายเหตุ']],
-        [SH.expenses]:[['วันที่','รายการ','ประเภท','ร้าน','จำนวนเงิน','หมายเหตุ']],
-        [SH.pawn]:    [['วันที่','ประเภท','ชื่อลูกค้า','เบอร์โทร','รายการ','ราคา','วันครบกำหนด','ร้าน','สถานะ','หมายเหตุ']],
-        [SH.repair]:  [['วันที่รับ','ชื่อลูกค้า','เบอร์โทร','รุ่น','อาการ','ค่าแรง','ค่าอะไหล่','รวม','ประกัน(เดือน)','ร้าน','สถานะ','หมายเหตุ']]
+        [SH.stock]:    [['ID','ชื่อสินค้า','ยี่ห้อ/รุ่น','ประเภท','ราคาทุน','ราคาขาย','จำนวน','ร้าน','หมายเหตุ','วันที่เพิ่ม','จำนวนเคลม']],
+        [SH.sales]:    [['วันที่','เลขที่','ชื่อสินค้า','ประเภท','ร้าน','จำนวน','ราคาทุน/ชิ้น','ราคาขาย','กำไร','หมายเหตุ','ประเภทรายได้']],
+        [SH.expenses]: [['วันที่','รายการ','ประเภท','ร้าน','จำนวนเงิน','หมายเหตุ']],
+        [SH.pawn]:     [['วันที่','ประเภท','ชื่อลูกค้า','เบอร์โทร','รายการ','ราคา','วันครบกำหนด','ร้าน','สถานะ','หมายเหตุ']],
+        [SH.repair]:   [['วันที่รับ','ชื่อลูกค้า','เบอร์โทร','รุ่น','อาการ','ค่าแรง','ค่าอะไหล่','รวม','ประกัน(เดือน)','ร้าน','สถานะ','หมายเหตุ']],
+        [SH.stockLog]: [['วันที่-เวลา','ID','ชื่อสินค้า','ประเภท','ร้าน','ก่อน','เปลี่ยน','หลัง','อ้างอิง']]
     };
     for (const sh of missing) if (hdrs[sh]) await shAppend(sh, hdrs[sh]);
 }
 
 async function loadAll() {
     const [stk,sal,exp,pw,rp] = await Promise.all([
-        shGet(`${SH.stock}!A2:K`), shGet(`${SH.sales}!A2:J`), shGet(`${SH.expenses}!A2:F`),
+        shGet(`${SH.stock}!A2:K`), shGet(`${SH.sales}!A2:K`), shGet(`${SH.expenses}!A2:F`),
         shGet(`${SH.pawn}!A2:J`), shGet(`${SH.repair}!A2:L`)
     ]);
     DB.stock   = stk.map((r,i) => ({ row:i+2, id:r[0]||'', name:r[1]||'', brand:r[2]||'', type:r[3]||'', cost:+r[4]||0, price:+r[5]||0, qty:+r[6]||0, store:r[7]||'', note:r[8]||'', date:r[9]||'', claimQty:+r[10]||0 }));
-    DB.sales   = sal.map((r,i) => ({ row:i+2, date:r[0]||'', ref:r[1]||'', name:r[2]||'', type:r[3]||'', store:r[4]||'', qty:+r[5]||0, cost:+r[6]||0, price:+r[7]||0, profit:+r[8]||0, note:r[9]||'' }));
+    DB.sales   = sal.map((r,i) => ({ row:i+2, date:r[0]||'', ref:r[1]||'', name:r[2]||'', type:r[3]||'', store:r[4]||'', qty:+r[5]||0, cost:+r[6]||0, price:+r[7]||0, profit:+r[8]||0, note:r[9]||'', incomeType:r[10]||'สินค้า' }));
     DB.expenses= exp.map((r,i) => ({ row:i+2, date:r[0]||'', name:r[1]||'', type:r[2]||'', store:r[3]||'', amount:+r[4]||0, note:r[5]||'' }));
     DB.pawn    = pw.map((r,i)  => ({ row:i+2, date:r[0]||'', type:r[1]||'', customer:r[2]||'', phone:r[3]||'', item:r[4]||'', price:+r[5]||0, due:r[6]||'', store:r[7]||'', status:r[8]||'ค้างอยู่', note:r[9]||'' }));
     DB.repair  = rp.map((r,i)  => ({ row:i+2, date:r[0]||'', customer:r[1]||'', phone:r[2]||'', model:r[3]||'', symptom:r[4]||'', labor:+r[5]||0, parts:+r[6]||0, total:+r[7]||0, warranty:r[8]||'0', store:r[9]||'', status:r[10]||'กำลังซ่อม', note:r[11]||'' }));
@@ -1210,10 +1295,14 @@ async function saveSale() {
     const ref = 'S'+Date.now().toString().slice(-6);
     loading(true);
     try {
-        await shAppend(SH.sales, [[date,ref,name,g('sl-type').value,store,qty,cost,price,profit,g('sl-note').value]]);
+        await shAppend(SH.sales, [[date,ref,name,g('sl-type').value,store,qty,cost,price,profit,g('sl-note').value,'สินค้า']]);
         if (!isManual && pv) {
             const si = DB.stock.find(s=>s.row===+pv);
-            if (si) await shUpdate(`${SH.stock}!G${si.row}`, [[Math.max(0,si.qty-qty)]]);
+            if (si) {
+                const newQty = Math.max(0, si.qty - qty);
+                await shUpdate(`${SH.stock}!G${si.row}`, [[newQty]]);
+                await logStockMovement(si.id, si.name, si.store, 'ขาย', si.qty, -qty, newQty, ref);
+            }
         }
         showToast('บันทึกการขายเรียบร้อย ✅');
         setVal(['sl-cost','sl-price','sl-profit','sl-note'],'');
@@ -1235,7 +1324,7 @@ function renderSales() {
     }).sort((a,b)=>b.date.localeCompare(a.date));
 
     const tbody = g('sl-tbody'), tfoot = g('sl-tfoot');
-    if (!items.length) { tbody.innerHTML='<tr><td colspan="10" class="text-center text-muted py-4">ไม่พบรายการ</td></tr>'; tfoot.innerHTML=''; return; }
+    if (!items.length) { tbody.innerHTML='<tr><td colspan="11" class="text-center text-muted py-4">ไม่พบรายการ</td></tr>'; tfoot.innerHTML=''; return; }
     tbody.innerHTML = items.map(s=>`<tr>
         <td class="small">${thDate(s.date)}</td>
         <td class="fw-semibold">${esc(s.name)}</td>
@@ -1246,10 +1335,11 @@ function renderSales() {
         <td>฿${fmt(s.price)}</td>
         <td class="${s.profit>=0?'profit-pos':'profit-neg'}">฿${fmt(s.profit)}</td>
         <td class="small text-muted">${esc(s.note)}</td>
+        <td><span class="badge ${incomeTypeBadge(s.incomeType)} small">${esc(s.incomeType||'สินค้า')}</span></td>
         <td><button class="btn btn-sm btn-outline-danger px-2" onclick="delRow('sales',${s.row})"><i class="bi bi-trash"></i></button></td>
     </tr>`).join('');
     const ts = sum(items,'price'), tp = sum(items,'profit');
-    tfoot.innerHTML = `<tr><td colspan="6" class="small">รวม ${items.length} รายการ</td><td>฿${fmt(ts)}</td><td class="profit-pos">฿${fmt(tp)}</td><td colspan="2"></td></tr>`;
+    tfoot.innerHTML = `<tr><td colspan="6" class="small">รวม ${items.length} รายการ</td><td>฿${fmt(ts)}</td><td class="profit-pos">฿${fmt(tp)}</td><td colspan="3"></td></tr>`;
 }
 
 // ─── EXPENSES ─────────────────────────────────────────────
@@ -1332,8 +1422,9 @@ function renderPawn() {
                 <td><span class="badge ${sc} px-2">${p.status}${overdue?' ⚠️':''}</span></td>
                 <td class="text-nowrap">
                     ${p.status==='ค้างอยู่'?`
-                    <button class="btn btn-sm btn-outline-success px-2 me-1" onclick="setPawnStatus(${p.row},'ไถ่คืนแล้ว')" title="ไถ่คืน"><i class="bi bi-check-circle"></i></button>
-                    <button class="btn btn-sm btn-outline-warning px-2 me-1" onclick="setPawnStatus(${p.row},'ขายแล้ว')" title="ขาย"><i class="bi bi-cash"></i></button>
+                    <button class="btn btn-sm btn-outline-info px-2 me-1" onclick="openPawnIncomeModal(${p.row},'interest')" title="บันทึกดอก"><i class="bi bi-currency-dollar"></i></button>
+                    <button class="btn btn-sm btn-outline-success px-2 me-1" onclick="setPawnStatus(${p.row},'ไถ่คืนแล้ว')" title="ไถ่คืน+บันทึกรายได้"><i class="bi bi-check-circle"></i></button>
+                    <button class="btn btn-sm btn-outline-warning px-2 me-1" onclick="setPawnStatus(${p.row},'ขายแล้ว')" title="ขาย+บันทึกรายได้"><i class="bi bi-cash"></i></button>
                     `:''}
                     <button class="btn btn-sm btn-outline-danger px-2" onclick="delRow('pawn',${p.row})"><i class="bi bi-trash"></i></button>
                 </td>
@@ -1342,6 +1433,10 @@ function renderPawn() {
 }
 
 async function setPawnStatus(row, status) {
+    if (status === 'ไถ่คืนแล้ว' || status === 'ขายแล้ว') {
+        openPawnIncomeModal(row, status === 'ไถ่คืนแล้ว' ? 'redeem' : 'sell');
+        return;
+    }
     loading(true);
     try { await shUpdate(`${SH.pawn}!I${row}`, [[status]]); showToast('อัปเดตสถานะเรียบร้อย ✅'); await loadAll(); renderPawn(); }
     catch(e) { showToast('เกิดข้อผิดพลาด','danger'); }
@@ -1406,7 +1501,19 @@ function renderRepair() {
 
 async function setRepairStatus(row, status) {
     loading(true);
-    try { await shUpdate(`${SH.repair}!K${row}`, [[status]]); await loadAll(); renderRepair(); }
+    try {
+        await shUpdate(`${SH.repair}!K${row}`, [[status]]);
+        if (status === 'รับคืนแล้ว') {
+            const r = DB.repair.find(r => r.row === row);
+            if (r && r.total > 0) {
+                const today = new Date().toISOString().split('T')[0];
+                const ref = 'R'+Date.now().toString().slice(-6);
+                await shAppend(SH.sales, [[today,ref,r.model,'ซ่อม',r.store,1,0,r.total,r.total,r.symptom,'ซ่อม']]);
+                showToast('บันทึกรายได้ค่าซ่อม ฿'+fmt(r.total)+' ✅');
+            }
+        }
+        await loadAll(); renderRepair(); renderDashboard();
+    }
     catch(e) { showToast('เกิดข้อผิดพลาด','danger'); }
     loading(false);
 }
@@ -1506,7 +1613,70 @@ function onStoreChange() {
     if (page && renders[page]) renders[page]();
 }
 
-// ─── CLAIM ────────────────────────────────────────────────
+// ─── INCOME TYPE HELPER ───────────────────────────────────────
+function incomeTypeBadge(t) {
+    const m = {'สินค้า':'bg-primary','ดอกจำนำ':'bg-warning text-dark','ขายจำนำ':'bg-info text-dark','ขายเทิร์น':'bg-success','ซ่อม':'bg-secondary'};
+    return m[t]||'bg-light text-dark border';
+}
+
+// ─── PAWN INCOME RECORDING ───────────────────────────────────
+let _piRow = null;
+
+function openPawnIncomeModal(row, mode) {
+    _piRow = row;
+    const p = DB.pawn.find(p => p.row === row);
+    if (!p) return;
+    const isInterest = mode === 'interest';
+    const isRedeem   = mode === 'redeem';
+    const isSell     = mode === 'sell';
+    const typeMap = {
+        interest: 'ดอกจำนำ',
+        redeem:   'ดอกจำนำ',
+        sell:     p.type === 'เทิร์น' ? 'ขายเทิร์น' : 'ขายจำนำ'
+    };
+    const titleMap = {
+        interest: 'บันทึกรับดอก (ไม่ปิดรายการ)',
+        redeem:   'ไถ่คืน + บันทึกดอก',
+        sell:     'ขาย + บันทึกรายได้'
+    };
+    g('pi-modal-title').textContent = titleMap[mode]||'บันทึกรายได้';
+    g('pi-item-name').textContent = `${p.type}: ${p.item} (${p.customer})`;
+    g('pi-type').value = typeMap[mode]||'สินค้า';
+    g('pi-store').value = p.store;
+    g('pi-mode').value = mode;
+    g('pi-date').value = new Date().toISOString().split('T')[0];
+    g('pi-amount').value = isSell ? p.price : '';
+    g('pi-cost').value = isSell ? p.price : '0';
+    g('pi-note').value = '';
+    new bootstrap.Modal(g('pawnIncomeModal')).show();
+}
+
+async function savePawnIncome() {
+    const amount = +g('pi-amount').value || 0;
+    const cost   = +g('pi-cost').value   || 0;
+    const incomeType = g('pi-type').value;
+    const date   = g('pi-date').value;
+    const store  = g('pi-store').value;
+    const mode   = g('pi-mode').value;
+    const p = DB.pawn.find(p => p.row === _piRow);
+    if (!p || !amount) { showToast('กรุณากรอกจำนวนเงิน', 'warning'); return; }
+    loading(true);
+    try {
+        const ref = 'P'+Date.now().toString().slice(-6);
+        const profit = amount - cost;
+        await shAppend(SH.sales, [[date, ref, p.item, p.type, store, 1, cost, amount, profit, g('pi-note').value||p.customer, incomeType]]);
+        if (mode === 'redeem' || mode === 'sell') {
+            const newStatus = mode === 'redeem' ? 'ไถ่คืนแล้ว' : 'ขายแล้ว';
+            await shUpdate(`${SH.pawn}!I${_piRow}`, [[newStatus]]);
+        }
+        bootstrap.Modal.getInstance(g('pawnIncomeModal')).hide();
+        showToast('บันทึกรายได้เรียบร้อย ✅');
+        await loadAll(); renderSales(); renderPawn(); renderDashboard();
+    } catch(e) { showToast('เกิดข้อผิดพลาด: '+e.message, 'danger'); }
+    loading(false);
+}
+
+// ─── CLAIM / RESTOCK ─────────────────────────────────────────
 async function ensureClaimColumn() {
     try {
         const header = await shGet(`${SH.stock}!A1:K1`);
@@ -1517,78 +1687,80 @@ async function ensureClaimColumn() {
 }
 
 function claimItem(row) {
-    const s = DB.stock.find(x => x.row === row);
+    const s = DB.stock.find(s => s.row === row);
     if (!s) return;
-    g('claim-product-name').textContent = s.name + (s.brand ? ' ' + s.brand : '');
-    const sellable = s.qty - s.claimQty;
-    g('claim-available').textContent = sellable;
     g('claim-row').value = row;
-    g('claim-qty-input').value = 1;
+    g('claim-name').textContent = s.name + ' ' + s.brand;
+    g('claim-available').value = s.qty - s.claimQty;
+    g('claim-qty').value = '';
     new bootstrap.Modal(g('claimModal')).show();
 }
 
 async function saveClaimItem() {
     const row = +g('claim-row').value;
-    const s = DB.stock.find(x => x.row === row);
-    const qty = +g('claim-qty-input').value || 0;
+    const qty = +g('claim-qty').value || 0;
+    const s = DB.stock.find(s => s.row === row);
     if (!s || qty <= 0) { showToast('กรุณากรอกจำนวน', 'warning'); return; }
     const sellable = s.qty - s.claimQty;
-    if (qty > sellable) { showToast(`จำนวนเกินที่คงเหลือ (เหลือ ${sellable})`, 'warning'); return; }
+    if (qty > sellable) { showToast('จำนวนเกินสินค้าที่ขายได้', 'warning'); return; }
     const newClaimQty = s.claimQty + qty;
     loading(true);
     try {
         await shUpdate(`${SH.stock}!K${row}`, [[newClaimQty]]);
-        showToast(`เคลม ${qty} ชิ้น เรียบร้อย ✅`);
+        await logStockMovement(s.id, s.name, s.store, 'เคลม', sellable, -qty, sellable-qty, 'Claim');
         bootstrap.Modal.getInstance(g('claimModal')).hide();
+        showToast('บันทึกเคลมเรียบร้อย ✅');
         await loadAll(); renderStock();
-    } catch(e) { showToast('เกิดข้อผิดพลาด: ' + e.message, 'danger'); }
+    } catch(e) { showToast('เกิดข้อผิดพลาด: '+e.message, 'danger'); }
     loading(false);
 }
 
 function receiveClaimItem(row) {
-    const s = DB.stock.find(x => x.row === row);
-    if (!s || s.claimQty <= 0) { showToast('ไม่มีรายการรอเคลม', 'warning'); return; }
-    g('rclaim-product-name').textContent = s.name + (s.brand ? ' ' + s.brand : '');
-    g('rclaim-pending').textContent = s.claimQty;
-    g('rclaim-row').value = row;
-    g('rclaim-qty-input').value = s.claimQty;
+    const s = DB.stock.find(s => s.row === row);
+    if (!s) return;
+    g('receive-claim-row').value = row;
+    g('receive-claim-name').textContent = s.name + ' ' + s.brand;
+    g('receive-claim-pending').value = s.claimQty;
+    g('receive-claim-qty').value = '';
     new bootstrap.Modal(g('receiveClaimModal')).show();
 }
 
 async function saveReceiveClaim() {
-    const row = +g('rclaim-row').value;
-    const s = DB.stock.find(x => x.row === row);
-    const qty = +g('rclaim-qty-input').value || 0;
-    if (!s || qty <= 0) { showToast('กรุณากรอกจำนวน', 'warning'); return; }
-    if (qty > s.claimQty) { showToast(`จำนวนเกิน (รอเคลม ${s.claimQty})`, 'warning'); return; }
+    const row = +g('receive-claim-row').value;
+    const qty = +g('receive-claim-qty').value || 0;
+    const s = DB.stock.find(s => s.row === row);
+    if (!s || qty <= 0 || qty > s.claimQty) { showToast('จำนวนไม่ถูกต้อง', 'warning'); return; }
     const newClaimQty = s.claimQty - qty;
+    const sellable = s.qty - s.claimQty;
     loading(true);
     try {
         await shUpdate(`${SH.stock}!K${row}`, [[newClaimQty]]);
-        showToast(`รับคืนเคลม ${qty} ชิ้น เรียบร้อย ✅`);
+        await logStockMovement(s.id, s.name, s.store, 'รับคืนเคลม', sellable, +qty, sellable+qty, 'Return');
         bootstrap.Modal.getInstance(g('receiveClaimModal')).hide();
+        showToast('รับคืนเคลมเรียบร้อย ✅');
         await loadAll(); renderStock();
-    } catch(e) { showToast('เกิดข้อผิดพลาด: ' + e.message, 'danger'); }
+    } catch(e) { showToast('เกิดข้อผิดพลาด: '+e.message, 'danger'); }
     loading(false);
 }
 
 function restockItem(row) {
-    const s = DB.stock.find(x => x.row === row);
+    const s = DB.stock.find(s => s.row === row);
     if (!s) return;
-    g('restock-product-name').textContent = s.name + (s.brand ? ' ' + s.brand : '');
-    g('restock-current-qty').textContent = s.qty;
     g('restock-row').value = row;
-    g('restock-qty-input').value = '';
-    g('restock-cost-input').value = '';
+    g('restock-name').textContent = s.name + ' ' + s.brand;
+    g('restock-current').value = s.qty;
+    g('restock-qty').value = '';
+    g('restock-cost').value = '';
     new bootstrap.Modal(g('restockModal')).show();
 }
 
 async function saveRestock() {
     const row = +g('restock-row').value;
-    const s = DB.stock.find(x => x.row === row);
-    const addQty = +g('restock-qty-input').value || 0;
-    const newCost = +g('restock-cost-input').value || 0;
-    if (!s || addQty <= 0) { showToast('กรุณากรอกจำนวนที่สั่งซื้อ', 'warning'); return; }
+    const addQty = +g('restock-qty').value || 0;
+    const newCost = +g('restock-cost').value || 0;
+    if (!row || addQty <= 0) { showToast('กรุณากรอกจำนวน', 'warning'); return; }
+    const s = DB.stock.find(s => s.row === row);
+    if (!s) return;
     const newQty = s.qty + addQty;
     loading(true);
     try {
@@ -1597,11 +1769,61 @@ async function saveRestock() {
         } else {
             await shUpdate(`${SH.stock}!G${row}`, [[newQty]]);
         }
-        showToast(`สั่งซื้อเพิ่ม ${addQty} ชิ้น เรียบร้อย ✅`);
+        await logStockMovement(s.id, s.name, s.store, 'สั่งซื้อ', s.qty, +addQty, newQty, 'Restock');
         bootstrap.Modal.getInstance(g('restockModal')).hide();
+        showToast('อัปเดตสต๊อคเรียบร้อย ✅');
         await loadAll(); renderStock();
-    } catch(e) { showToast('เกิดข้อผิดพลาด: ' + e.message, 'danger'); }
+    } catch(e) { showToast('เกิดข้อผิดพลาด: '+e.message, 'danger'); }
     loading(false);
+}
+
+// ─── STOCK MOVEMENT LOG ──────────────────────────────────────
+async function logStockMovement(id, name, store, type, before, change, after, ref) {
+    try {
+        const now = new Date();
+        const d = now.toLocaleDateString('th-TH',{year:'numeric',month:'2-digit',day:'2-digit'});
+        const t = now.toLocaleTimeString('th-TH',{hour:'2-digit',minute:'2-digit'});
+        await shAppend(SH.stockLog, [[`${d} ${t}`, id||'', name||'', type||'', store||'', before, change, after, ref||'']]);
+    } catch(e) { console.warn('logStockMovement failed:', e.message); }
+}
+
+async function openStockLog() {
+    new bootstrap.Modal(g('stockLogModal')).show();
+    g('slog-tbody').innerHTML = '<tr><td colspan="8" class="text-center py-3"><div class="spinner-border spinner-border-sm"></div></td></tr>';
+    try {
+        const rows = await shGet(`${SH.stockLog}!A2:I`);
+        window._stockLogData = rows.reverse().map(r => ({
+            datetime:r[0]||'', id:r[1]||'', name:r[2]||'', type:r[3]||'',
+            store:r[4]||'', before:r[5]||'', change:r[6]||'', after:r[7]||'', ref:r[8]||''
+        }));
+        renderStockLog();
+    } catch(e) { g('slog-tbody').innerHTML='<tr><td colspan="8" class="text-center text-danger py-3">โหลดข้อมูลล้มเหลว</td></tr>'; }
+}
+
+function renderStockLog() {
+    const srch = (g('slog-search')?.value||'').toLowerCase();
+    const tf   = g('slog-type-f')?.value||'';
+    const data = (window._stockLogData||[]).filter(r =>
+        (!srch || r.name.toLowerCase().includes(srch)) &&
+        (!tf   || r.type === tf)
+    );
+    const typeColor = {'ขาย':'text-danger','สั่งซื้อ':'text-success','เคลม':'text-warning','รับคืนเคลม':'text-info','ปรับยอด':'text-secondary'};
+    g('slog-tbody').innerHTML = data.length === 0
+        ? '<tr><td colspan="8" class="text-center text-muted py-3">ไม่พบรายการ</td></tr>'
+        : data.map(r => {
+            const ch = +r.change;
+            const chStr = ch>0 ? `<span class="text-success">+${ch}</span>` : `<span class="text-danger">${ch}</span>`;
+            return `<tr>
+                <td class="small text-muted">${esc(r.datetime)}</td>
+                <td><div class="fw-semibold small">${esc(r.name)}</div></td>
+                <td><span class="badge ${typeColor[r.type]||'bg-secondary'} bg-opacity-10 border text-dark small">${esc(r.type)}</span></td>
+                <td><span class="badge ${sBadge(r.store)} small">${sName(r.store)}</span></td>
+                <td class="text-center small">${r.before}</td>
+                <td class="text-center small fw-bold">${chStr}</td>
+                <td class="text-center small">${r.after}</td>
+                <td class="small text-muted">${esc(r.ref)}</td>
+            </tr>`;
+        }).join('');
 }
 
 </script>
