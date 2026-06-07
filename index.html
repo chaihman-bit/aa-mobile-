@@ -341,7 +341,7 @@
                 </div>
                 <div class="table-responsive">
                     <table class="table table-hover mb-0">
-                        <thead><tr><th>ชื่อสินค้า</th><th>ยี่ห้อ/รุ่น</th><th>ประเภท</th><th>ราคาทุน</th><th>ราคาขาย</th><th>กำไร%</th><th>จำนวนทั้งหมด</th><th>คงเหลือ</th><th>รอเคลม</th><th>ร้าน</th><th>จัดการ</th></tr></thead>
+                        <thead><tr><th>ชื่อสินค้า</th><th>ยี่ห้อ/รุ่น</th><th>ประเภท</th><th>ราคาทุน</th><th>ราคาขาย</th><th>กำไร%</th><th>ยอดสต๊อค</th><th>พร้อมขาย</th><th>เคลม</th><th>ร้าน</th><th>จัดการ</th></tr></thead>
                         <tbody id="stk-tbody"><tr><td colspan="9" class="text-center text-muted py-4"><span class="spinner-border spinner-border-sm me-2"></span>กำลังโหลด...</td></tr></tbody>
                     </table>
                 </div>
@@ -847,7 +847,7 @@
     <div class="modal-body">
       <p class="fw-semibold" id="claim-name"></p>
       <div class="mb-3">
-        <label class="form-label small">จำนวนที่ขายได้ (คงเหลือ)</label>
+        <label class="form-label small">พร้อมขาย</label>
         <input type="text" class="form-control form-control-sm" id="claim-available" readonly>
       </div>
       <div class="mb-3">
@@ -873,7 +873,7 @@
     <div class="modal-body">
       <p class="fw-semibold" id="receive-claim-name"></p>
       <div class="mb-3">
-        <label class="form-label small">รอเคลมอยู่</label>
+        <label class="form-label small">เคลมอยู่</label>
         <input type="text" class="form-control form-control-sm" id="receive-claim-pending" readonly>
       </div>
       <div class="mb-3">
@@ -1821,20 +1821,4 @@ function renderStockLog() {
         ? '<tr><td colspan="8" class="text-center text-muted py-3">ไม่พบรายการ</td></tr>'
         : data.map(r => {
             const ch = +r.change;
-            const chStr = ch>0 ? `<span class="text-success">+${ch}</span>` : `<span class="text-danger">${ch}</span>`;
-            return `<tr>
-                <td class="small text-muted">${esc(r.datetime)}</td>
-                <td><div class="fw-semibold small">${esc(r.name)}</div></td>
-                <td><span class="badge ${typeColor[r.type]||'bg-secondary'} bg-opacity-10 border text-dark small">${esc(r.type)}</span></td>
-                <td><span class="badge ${sBadge(r.store)} small">${sName(r.store)}</span></td>
-                <td class="text-center small">${r.before}</td>
-                <td class="text-center small fw-bold">${chStr}</td>
-                <td class="text-center small">${r.after}</td>
-                <td class="small text-muted">${esc(r.ref)}</td>
-            </tr>`;
-        }).join('');
-}
-
-</script>
-</body>
-</html>
+            const chStr = ch>0 ? `<span class
