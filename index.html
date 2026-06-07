@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AA Mobile - ระบบจัดการร้าน</title>
+    <title>AA Mobile - เธฃเธฐเธเธเธเธฑเธ”เธเธฒเธฃเธฃเนเธฒเธ</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
     <style>
@@ -103,49 +103,49 @@
 <div id="setup-screen">
     <div class="setup-card">
         <div class="text-center mb-4">
-            <div style="font-size:2.8rem;">📱</div>
+            <div style="font-size:2.8rem;">๐“ฑ</div>
             <h4 class="fw-bold mt-1 mb-1">AA Mobile</h4>
-            <p class="text-muted small mb-0">ระบบจัดการร้าน | Shop Management System</p>
+            <p class="text-muted small mb-0">เธฃเธฐเธเธเธเธฑเธ”เธเธฒเธฃเธฃเนเธฒเธ | Shop Management System</p>
         </div>
         <div id="setup-step-1">
             <div class="mb-3">
                 <label class="form-label">Google OAuth Client ID <span class="text-danger">*</span></label>
                 <input type="text" id="input-client-id" class="form-control" placeholder="xxxx.apps.googleusercontent.com">
-                <div class="form-text">Google Cloud Console → APIs & Services → Credentials</div>
+                <div class="form-text">Google Cloud Console โ’ APIs & Services โ’ Credentials</div>
             </div>
             <div class="mb-3">
                 <label class="form-label">Google Spreadsheet ID <span class="text-danger">*</span></label>
                 <input type="text" id="input-sheet-id" class="form-control" placeholder="1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgVE2upms">
-                <div class="form-text">จาก URL: docs.google.com/spreadsheets/d/<b>ID</b>/edit</div>
+                <div class="form-text">เธเธฒเธ URL: docs.google.com/spreadsheets/d/<b>ID</b>/edit</div>
             </div>
             <div class="mb-4">
-                <label class="form-label">ชื่อร้านสาขา 1 / สาขา 2</label>
+                <label class="form-label">เธเธทเนเธญเธฃเนเธฒเธเธชเธฒเธเธฒ 1 / เธชเธฒเธเธฒ 2</label>
                 <div class="row g-2">
-                    <div class="col-6"><input type="text" id="input-shop1" class="form-control" placeholder="สาขา 1" value="สาขา 1"></div>
-                    <div class="col-6"><input type="text" id="input-shop2" class="form-control" placeholder="สาขา 2" value="สาขา 2"></div>
+                    <div class="col-6"><input type="text" id="input-shop1" class="form-control" placeholder="เธชเธฒเธเธฒ 1" value="เธชเธฒเธเธฒ 1"></div>
+                    <div class="col-6"><input type="text" id="input-shop2" class="form-control" placeholder="เธชเธฒเธเธฒ 2" value="เธชเธฒเธเธฒ 2"></div>
                 </div>
             </div>
             <button class="btn btn-primary w-100 py-2 fw-semibold" onclick="saveConfig()">
-                <i class="bi bi-google me-2"></i>เข้าสู่ระบบด้วย Google
+                <i class="bi bi-google me-2"></i>เน€เธเนเธฒเธชเธนเนเธฃเธฐเธเธเธ”เนเธงเธข Google
             </button>
-            <button class="btn btn-link w-100 mt-2 small text-muted" onclick="showGuide()">📖 วิธีตั้งค่า (Setup Guide)</button>
+            <button class="btn btn-link w-100 mt-2 small text-muted" onclick="showGuide()">๐“– เธงเธดเธเธตเธ•เธฑเนเธเธเนเธฒ (Setup Guide)</button>
         </div>
         <div id="setup-guide" style="display:none;">
-            <button class="btn btn-sm btn-outline-secondary mb-3" onclick="hideGuide()">← กลับ</button>
-            <h6 class="fw-bold mb-3">ขั้นตอนตั้งค่า Google Sheets API</h6>
+            <button class="btn btn-sm btn-outline-secondary mb-3" onclick="hideGuide()">โ เธเธฅเธฑเธ</button>
+            <h6 class="fw-bold mb-3">เธเธฑเนเธเธ•เธญเธเธ•เธฑเนเธเธเนเธฒ Google Sheets API</h6>
             <ol class="small" style="line-height:1.9;">
-                <li>ไปที่ <a href="https://console.cloud.google.com" target="_blank">console.cloud.google.com</a> → สร้าง Project ใหม่</li>
-                <li><b>APIs & Services → Library</b> → ค้นหา "Google Sheets API" → Enable</li>
-                <li>ค้นหา "Google OAuth2 API" → Enable (สำหรับ user info)</li>
-                <li><b>APIs & Services → Credentials</b> → Create Credentials → <b>OAuth 2.0 Client IDs</b></li>
+                <li>เนเธเธ—เธตเน <a href="https://console.cloud.google.com" target="_blank">console.cloud.google.com</a> โ’ เธชเธฃเนเธฒเธ Project เนเธซเธกเน</li>
+                <li><b>APIs & Services โ’ Library</b> โ’ เธเนเธเธซเธฒ "Google Sheets API" โ’ Enable</li>
+                <li>เธเนเธเธซเธฒ "Google OAuth2 API" โ’ Enable (เธชเธณเธซเธฃเธฑเธ user info)</li>
+                <li><b>APIs & Services โ’ Credentials</b> โ’ Create Credentials โ’ <b>OAuth 2.0 Client IDs</b></li>
                 <li>Application type: <b>Web application</b></li>
-                <li>Authorized JavaScript Origins: ใส่ URL ของไฟล์ HTML นี้<br><small class="text-muted">(ถ้าเปิดจาก file:// ให้ใส่ http://localhost หรือ deploy บน web hosting)</small></li>
-                <li>Copy <b>Client ID</b> มาวาง</li>
-                <li>สร้าง Google Sheets ว่าง → Copy ID จาก URL → วางในช่อง Spreadsheet ID</li>
-                <li>แอปจะสร้าง Sheet ย่อยทั้งหมดให้อัตโนมัติ ✅</li>
+                <li>Authorized JavaScript Origins: เนเธชเน URL เธเธญเธเนเธเธฅเน HTML เธเธตเน<br><small class="text-muted">(เธ–เนเธฒเน€เธเธดเธ”เธเธฒเธ file:// เนเธซเนเนเธชเน http://localhost เธซเธฃเธทเธญ deploy เธเธ web hosting)</small></li>
+                <li>Copy <b>Client ID</b> เธกเธฒเธงเธฒเธ</li>
+                <li>เธชเธฃเนเธฒเธ Google Sheets เธงเนเธฒเธ โ’ Copy ID เธเธฒเธ URL โ’ เธงเธฒเธเนเธเธเนเธญเธ Spreadsheet ID</li>
+                <li>เนเธญเธเธเธฐเธชเธฃเนเธฒเธ Sheet เธขเนเธญเธขเธ—เธฑเนเธเธซเธกเธ”เนเธซเนเธญเธฑเธ•เนเธเธกเธฑเธ•เธด โ…</li>
             </ol>
             <div class="alert alert-info small mt-2 mb-0">
-                💡 <b>Tip:</b> แนะนำให้ deploy ไฟล์นี้บน GitHub Pages หรือ Netlify เพื่อใช้งานได้ง่ายขึ้น
+                ๐’ก <b>Tip:</b> เนเธเธฐเธเธณเนเธซเน deploy เนเธเธฅเนเธเธตเนเธเธ GitHub Pages เธซเธฃเธทเธญ Netlify เน€เธเธทเนเธญเนเธเนเธเธฒเธเนเธ”เนเธเนเธฒเธขเธเธถเนเธ
             </div>
         </div>
     </div>
@@ -155,7 +155,7 @@
 <div id="loading-overlay" class="loading-overlay" style="display:none;">
     <div class="text-center">
         <div class="spinner-border text-primary" role="status"></div>
-        <p class="mt-2 text-muted small">กำลังโหลด...</p>
+        <p class="mt-2 text-muted small">เธเธณเธฅเธฑเธเนเธซเธฅเธ”...</p>
     </div>
 </div>
 
@@ -173,44 +173,44 @@
                     <i class="bi bi-speedometer2"></i> Dashboard
                 </a>
             </li>
-            <li class="nav-section">สินค้า / ขาย</li>
+            <li class="nav-section">เธชเธดเธเธเนเธฒ / เธเธฒเธข</li>
             <li class="nav-item">
                 <a href="#" onclick="return navTo('stock',this)">
-                    <i class="bi bi-box-seam"></i> สต๊อคสินค้า
+                    <i class="bi bi-box-seam"></i> เธชเธ•เนเธญเธเธชเธดเธเธเนเธฒ
                 </a>
             </li>
             <li class="nav-item">
                 <a href="#" onclick="return navTo('sales',this)">
-                    <i class="bi bi-cart-check"></i> บันทึกการขาย
+                    <i class="bi bi-cart-check"></i> เธเธฑเธเธ—เธถเธเธเธฒเธฃเธเธฒเธข
                 </a>
             </li>
-            <li class="nav-section">รายจ่าย / บริการ</li>
+            <li class="nav-section">เธฃเธฒเธขเธเนเธฒเธข / เธเธฃเธดเธเธฒเธฃ</li>
             <li class="nav-item">
                 <a href="#" onclick="return navTo('expenses',this)">
-                    <i class="bi bi-wallet2"></i> ค่าใช้จ่าย
+                    <i class="bi bi-wallet2"></i> เธเนเธฒเนเธเนเธเนเธฒเธข
                 </a>
             </li>
             <li class="nav-item">
                 <a href="#" onclick="return navTo('pawn',this)">
-                    <i class="bi bi-shield-lock"></i> รับจำนำ / เทิร์น
+                    <i class="bi bi-shield-lock"></i> เธฃเธฑเธเธเธณเธเธณ / เน€เธ—เธดเธฃเนเธ
                 </a>
             </li>
             <li class="nav-item">
                 <a href="#" onclick="return navTo('repair',this)">
-                    <i class="bi bi-tools"></i> งานซ่อม
+                    <i class="bi bi-tools"></i> เธเธฒเธเธเนเธญเธก
                 </a>
             </li>
-            <li class="nav-section">สรุป</li>
+            <li class="nav-section">เธชเธฃเธธเธ</li>
             <li class="nav-item">
                 <a href="#" onclick="return navTo('reports',this)">
-                    <i class="bi bi-bar-chart-line"></i> รายงาน
+                    <i class="bi bi-bar-chart-line"></i> เธฃเธฒเธขเธเธฒเธ
                 </a>
             </li>
         </ul>
     </div>
     <div id="sidebar-bottom">
         <button class="btn btn-sm btn-outline-light w-100" onclick="signOut()">
-            <i class="bi bi-box-arrow-right me-1"></i>ออกจากระบบ
+            <i class="bi bi-box-arrow-right me-1"></i>เธญเธญเธเธเธฒเธเธฃเธฐเธเธ
         </button>
     </div>
 </nav>
@@ -224,12 +224,12 @@
         </div>
         <div class="d-flex align-items-center gap-2 flex-wrap">
             <select class="form-select form-select-sm" id="store-filter" onchange="onStoreChange()" style="width:auto;">
-                <option value="all">🏪 ทุกร้าน</option>
-                <option value="1" id="topbar-s1">สาขา 1</option>
-                <option value="2" id="topbar-s2">สาขา 2</option>
+                <option value="all">๐ช เธ—เธธเธเธฃเนเธฒเธ</option>
+                <option value="1" id="topbar-s1">เธชเธฒเธเธฒ 1</option>
+                <option value="2" id="topbar-s2">เธชเธฒเธเธฒ 2</option>
             </select>
             <div class="d-flex align-items-center gap-1">
-                <span class="badge rounded-pill bg-success" style="font-size:.6rem;">●</span>
+                <span class="badge rounded-pill bg-success" style="font-size:.6rem;">โ—</span>
                 <small class="text-muted" id="user-email" style="max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"></small>
             </div>
         </div>
@@ -244,8 +244,8 @@
                     <div class="stat-card">
                         <div class="d-flex justify-content-between align-items-start">
                             <div>
-                                <div class="text-muted small mb-1">ยอดขายวันนี้</div>
-                                <div class="h5 fw-bold mb-0" id="d-today-sales">฿0</div>
+                                <div class="text-muted small mb-1">เธขเธญเธ”เธเธฒเธขเธงเธฑเธเธเธตเน</div>
+                                <div class="h5 fw-bold mb-0" id="d-today-sales">เธฟ0</div>
                             </div>
                             <div class="icon" style="background:#dbeafe;color:#2563eb;"><i class="bi bi-currency-exchange"></i></div>
                         </div>
@@ -255,8 +255,8 @@
                     <div class="stat-card">
                         <div class="d-flex justify-content-between align-items-start">
                             <div>
-                                <div class="text-muted small mb-1">กำไรวันนี้</div>
-                                <div class="h5 fw-bold mb-0 profit-pos" id="d-today-profit">฿0</div>
+                                <div class="text-muted small mb-1">เธเธณเนเธฃเธงเธฑเธเธเธตเน</div>
+                                <div class="h5 fw-bold mb-0 profit-pos" id="d-today-profit">เธฟ0</div>
                             </div>
                             <div class="icon" style="background:#dcfce7;color:#16a34a;"><i class="bi bi-graph-up-arrow"></i></div>
                         </div>
@@ -266,8 +266,8 @@
                     <div class="stat-card">
                         <div class="d-flex justify-content-between align-items-start">
                             <div>
-                                <div class="text-muted small mb-1">รายการขายวันนี้</div>
-                                <div class="h5 fw-bold mb-0" id="d-today-count">0 รายการ</div>
+                                <div class="text-muted small mb-1">เธฃเธฒเธขเธเธฒเธฃเธเธฒเธขเธงเธฑเธเธเธตเน</div>
+                                <div class="h5 fw-bold mb-0" id="d-today-count">0 เธฃเธฒเธขเธเธฒเธฃ</div>
                             </div>
                             <div class="icon" style="background:#fef9c3;color:#ca8a04;"><i class="bi bi-receipt"></i></div>
                         </div>
@@ -277,8 +277,8 @@
                     <div class="stat-card">
                         <div class="d-flex justify-content-between align-items-start">
                             <div>
-                                <div class="text-muted small mb-1">งานซ่อมค้าง</div>
-                                <div class="h5 fw-bold mb-0" id="d-pending-repair">0 งาน</div>
+                                <div class="text-muted small mb-1">เธเธฒเธเธเนเธญเธกเธเนเธฒเธ</div>
+                                <div class="h5 fw-bold mb-0" id="d-pending-repair">0 เธเธฒเธ</div>
                             </div>
                             <div class="icon" style="background:#fce7f3;color:#be185d;"><i class="bi bi-tools"></i></div>
                         </div>
@@ -288,35 +288,35 @@
             <div class="row g-3 mb-3">
                 <div class="col-md-4">
                     <div class="stat-card">
-                        <div class="text-muted small mb-1">ยอดขายเดือนนี้</div>
-                        <div class="h5 fw-bold mb-1" id="d-month-sales">฿0</div>
-                        <div class="small">กำไรขาย: <span class="profit-pos fw-semibold" id="d-month-profit">฿0</span></div>
+                        <div class="text-muted small mb-1">เธขเธญเธ”เธเธฒเธขเน€เธ”เธทเธญเธเธเธตเน</div>
+                        <div class="h5 fw-bold mb-1" id="d-month-sales">เธฟ0</div>
+                        <div class="small">เธเธณเนเธฃเธเธฒเธข: <span class="profit-pos fw-semibold" id="d-month-profit">เธฟ0</span></div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="stat-card">
-                        <div class="text-muted small mb-1">ค่าใช้จ่ายเดือนนี้</div>
-                        <div class="h5 fw-bold mb-1 text-danger" id="d-month-exp">฿0</div>
-                        <div class="small">กำไรสุทธิ: <span class="fw-semibold" id="d-month-net">฿0</span></div>
+                        <div class="text-muted small mb-1">เธเนเธฒเนเธเนเธเนเธฒเธขเน€เธ”เธทเธญเธเธเธตเน</div>
+                        <div class="h5 fw-bold mb-1 text-danger" id="d-month-exp">เธฟ0</div>
+                        <div class="small">เธเธณเนเธฃเธชเธธเธ—เธเธด: <span class="fw-semibold" id="d-month-net">เธฟ0</span></div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="stat-card">
-                        <div class="text-muted small mb-1">สต๊อคสินค้า</div>
-                        <div class="h5 fw-bold mb-1" id="d-stock-total">0 รายการ</div>
+                        <div class="text-muted small mb-1">เธชเธ•เนเธญเธเธชเธดเธเธเนเธฒ</div>
+                        <div class="h5 fw-bold mb-1" id="d-stock-total">0 เธฃเธฒเธขเธเธฒเธฃ</div>
                         <div class="small text-warning" id="d-stock-low"></div>
                     </div>
                 </div>
             </div>
             <div class="table-card">
                 <div class="card-header">
-                    <span class="fw-semibold">รายการขายล่าสุด</span>
-                    <button class="btn btn-sm btn-primary" onclick="navTo('sales',null)"><i class="bi bi-plus me-1"></i>บันทึกการขาย</button>
+                    <span class="fw-semibold">เธฃเธฒเธขเธเธฒเธฃเธเธฒเธขเธฅเนเธฒเธชเธธเธ”</span>
+                    <button class="btn btn-sm btn-primary" onclick="navTo('sales',null)"><i class="bi bi-plus me-1"></i>เธเธฑเธเธ—เธถเธเธเธฒเธฃเธเธฒเธข</button>
                 </div>
                 <div class="table-responsive">
                     <table class="table table-hover mb-0">
-                        <thead><tr><th>วันที่</th><th>สินค้า</th><th>ประเภท</th><th>ร้าน</th><th>ราคาขาย</th><th>กำไร</th></tr></thead>
-                        <tbody id="d-recent-sales"><tr><td colspan="6" class="text-center text-muted py-4">ยังไม่มีข้อมูล</td></tr></tbody>
+                        <thead><tr><th>เธงเธฑเธเธ—เธตเน</th><th>เธชเธดเธเธเนเธฒ</th><th>เธเธฃเธฐเน€เธ เธ—</th><th>เธฃเนเธฒเธ</th><th>เธฃเธฒเธเธฒเธเธฒเธข</th><th>เธเธณเนเธฃ</th></tr></thead>
+                        <tbody id="d-recent-sales"><tr><td colspan="6" class="text-center text-muted py-4">เธขเธฑเธเนเธกเนเธกเธตเธเนเธญเธกเธนเธฅ</td></tr></tbody>
                     </table>
                 </div>
             </div>
@@ -326,23 +326,23 @@
         <section id="page-stock" class="page-section">
             <div class="table-card">
                 <div class="card-header">
-                    <span class="fw-semibold">สต๊อคสินค้า</span>
+                    <span class="fw-semibold">เธชเธ•เนเธญเธเธชเธดเธเธเนเธฒ</span>
                     <div class="d-flex gap-2 flex-wrap">
                         <select class="form-select form-select-sm" id="stk-type-f" onchange="renderStock()" style="width:auto;">
-                            <option value="">ทุกประเภท</option>
-                            <option>โทรศัพท์มือถือ</option>
-                            <option>เคส/ฟิล์ม/อุปกรณ์</option>
-                            <option>อะไหล่ซ่อม</option>
-                            <option>รับจำนำ/เทิร์น</option>
+                            <option value="">เธ—เธธเธเธเธฃเธฐเน€เธ เธ—</option>
+                            <option>เนเธ—เธฃเธจเธฑเธเธ—เนเธกเธทเธญเธ–เธทเธญ</option>
+                            <option>เน€เธเธช/เธเธดเธฅเนเธก/เธญเธธเธเธเธฃเธ“เน</option>
+                            <option>เธญเธฐเนเธซเธฅเนเธเนเธญเธก</option>
+                            <option>เธฃเธฑเธเธเธณเธเธณ/เน€เธ—เธดเธฃเนเธ</option>
                         </select>
-                        <input type="text" class="form-control form-control-sm" id="stk-search" placeholder="🔍 ค้นหา..." onkeyup="renderStock()" style="width:160px;">
-                        <button class="btn btn-sm btn-primary" onclick="openStockModal()"><i class="bi bi-plus-lg me-1"></i>เพิ่มสินค้า</button>
+                        <input type="text" class="form-control form-control-sm" id="stk-search" placeholder="๐” เธเนเธเธซเธฒ..." onkeyup="renderStock()" style="width:160px;">
+                        <button class="btn btn-sm btn-primary" onclick="openStockModal()"><i class="bi bi-plus-lg me-1"></i>เน€เธเธดเนเธกเธชเธดเธเธเนเธฒ</button>
                     </div>
                 </div>
                 <div class="table-responsive">
                     <table class="table table-hover mb-0">
-                        <thead><tr><th>ชื่อสินค้า</th><th>ยี่ห้อ/รุ่น</th><th>ประเภท</th><th>ราคาทุน</th><th>ราคาขาย</th><th>กำไร%</th><th>จำนวน</th><th>ร้าน</th><th>จัดการ</th></tr></thead>
-                        <tbody id="stk-tbody"><tr><td colspan="9" class="text-center text-muted py-4"><span class="spinner-border spinner-border-sm me-2"></span>กำลังโหลด...</td></tr></tbody>
+                        <thead><tr><th>เธเธทเนเธญเธชเธดเธเธเนเธฒ</th><th>เธขเธตเนเธซเนเธญ/เธฃเธธเนเธ</th><th>เธเธฃเธฐเน€เธ เธ—</th><th>เธฃเธฒเธเธฒเธ—เธธเธ</th><th>เธฃเธฒเธเธฒเธเธฒเธข</th><th>เธเธณเนเธฃ%</th><th>เธเธณเธเธงเธเธ—เธฑเนเธเธซเธกเธ”</th><th>เธเธฒเธขเนเธ”เน</th><th>เธฃเธญเน€เธเธฅเธก</th><th>เธฃเนเธฒเธ</th><th>เธเธฑเธ”เธเธฒเธฃ</th></tr></thead>
+                        <tbody id="stk-tbody"><tr><td colspan="11" class="text-center text-muted py-4"><span class="spinner-border spinner-border-sm me-2"></span>เธเธณเธฅเธฑเธเนเธซเธฅเธ”...</td></tr></tbody>
                     </table>
                 </div>
                 <div class="p-3 border-top small text-muted" id="stk-summary"></div>
@@ -352,58 +352,58 @@
         <!-- =============================== SALES =============================== -->
         <section id="page-sales" class="page-section">
             <div class="table-card mb-3">
-                <div class="card-header"><span class="fw-semibold"><i class="bi bi-cart-plus me-2"></i>บันทึกการขาย</span></div>
+                <div class="card-header"><span class="fw-semibold"><i class="bi bi-cart-plus me-2"></i>เธเธฑเธเธ—เธถเธเธเธฒเธฃเธเธฒเธข</span></div>
                 <div class="p-3">
                     <div class="row g-2">
                         <div class="col-6 col-md-2">
-                            <label class="form-label">วันที่</label>
+                            <label class="form-label">เธงเธฑเธเธ—เธตเน</label>
                             <input type="date" class="form-control" id="sl-date">
                         </div>
                         <div class="col-12 col-md-4">
-                            <label class="form-label">สินค้า <small class="text-muted">(เลือกจากสต๊อค)</small></label>
+                            <label class="form-label">เธชเธดเธเธเนเธฒ <small class="text-muted">(เน€เธฅเธทเธญเธเธเธฒเธเธชเธ•เนเธญเธ)</small></label>
                             <select class="form-select" id="sl-product" onchange="onSaleProductChange()">
-                                <option value="">-- เลือกสินค้า --</option>
+                                <option value="">-- เน€เธฅเธทเธญเธเธชเธดเธเธเนเธฒ --</option>
                             </select>
                         </div>
                         <div class="col-6 col-md-2">
-                            <label class="form-label">ประเภท</label>
+                            <label class="form-label">เธเธฃเธฐเน€เธ เธ—</label>
                             <select class="form-select" id="sl-type">
-                                <option>โทรศัพท์มือถือ</option>
-                                <option>เคส/ฟิล์ม/อุปกรณ์</option>
-                                <option>อะไหล่ซ่อม</option>
-                                <option>อื่นๆ</option>
+                                <option>เนเธ—เธฃเธจเธฑเธเธ—เนเธกเธทเธญเธ–เธทเธญ</option>
+                                <option>เน€เธเธช/เธเธดเธฅเนเธก/เธญเธธเธเธเธฃเธ“เน</option>
+                                <option>เธญเธฐเนเธซเธฅเนเธเนเธญเธก</option>
+                                <option>เธญเธทเนเธเน</option>
                             </select>
                         </div>
                         <div class="col-6 col-md-2">
-                            <label class="form-label">ร้าน</label>
+                            <label class="form-label">เธฃเนเธฒเธ</label>
                             <select class="form-select" id="sl-store">
-                                <option value="1" id="sl-s1">สาขา 1</option>
-                                <option value="2" id="sl-s2">สาขา 2</option>
+                                <option value="1" id="sl-s1">เธชเธฒเธเธฒ 1</option>
+                                <option value="2" id="sl-s2">เธชเธฒเธเธฒ 2</option>
                             </select>
                         </div>
                         <div class="col-4 col-md-1">
-                            <label class="form-label">จำนวน</label>
+                            <label class="form-label">เธเธณเธเธงเธ</label>
                             <input type="number" class="form-control" id="sl-qty" value="1" min="1" oninput="calcSaleProfit()">
                         </div>
                         <div class="col-4 col-md-2">
-                            <label class="form-label">ราคาทุน/ชิ้น</label>
+                            <label class="form-label">เธฃเธฒเธเธฒเธ—เธธเธ/เธเธดเนเธ</label>
                             <input type="number" class="form-control" id="sl-cost" placeholder="0" oninput="calcSaleProfit()">
                         </div>
                         <div class="col-4 col-md-2">
-                            <label class="form-label">ราคาขาย (รวม)</label>
+                            <label class="form-label">เธฃเธฒเธเธฒเธเธฒเธข (เธฃเธงเธก)</label>
                             <input type="number" class="form-control" id="sl-price" placeholder="0" oninput="calcSaleProfit()">
                         </div>
                         <div class="col-4 col-md-2">
-                            <label class="form-label">กำไร</label>
+                            <label class="form-label">เธเธณเนเธฃ</label>
                             <input type="number" class="form-control bg-light" id="sl-profit" readonly>
                         </div>
                         <div class="col-8 col-md-3">
-                            <label class="form-label">หมายเหตุ</label>
-                            <input type="text" class="form-control" id="sl-note" placeholder="หมายเหตุ...">
+                            <label class="form-label">เธซเธกเธฒเธขเน€เธซเธ•เธธ</label>
+                            <input type="text" class="form-control" id="sl-note" placeholder="เธซเธกเธฒเธขเน€เธซเธ•เธธ...">
                         </div>
                         <div class="col-12 col-md-3 d-flex align-items-end">
                             <button class="btn btn-success w-100 fw-semibold" onclick="saveSale()">
-                                <i class="bi bi-check-circle me-1"></i>บันทึกการขาย
+                                <i class="bi bi-check-circle me-1"></i>เธเธฑเธเธ—เธถเธเธเธฒเธฃเธเธฒเธข
                             </button>
                         </div>
                     </div>
@@ -411,15 +411,15 @@
             </div>
             <div class="table-card">
                 <div class="card-header">
-                    <span class="fw-semibold">ประวัติการขาย</span>
+                    <span class="fw-semibold">เธเธฃเธฐเธงเธฑเธ•เธดเธเธฒเธฃเธเธฒเธข</span>
                     <div class="d-flex gap-2 flex-wrap">
                         <input type="month" class="form-control form-control-sm" id="sl-month-f" onchange="renderSales()" style="width:auto;">
-                        <input type="text" class="form-control form-control-sm" id="sl-search" placeholder="🔍 ค้นหา..." onkeyup="renderSales()" style="width:140px;">
+                        <input type="text" class="form-control form-control-sm" id="sl-search" placeholder="๐” เธเนเธเธซเธฒ..." onkeyup="renderSales()" style="width:140px;">
                     </div>
                 </div>
                 <div class="table-responsive">
                     <table class="table table-hover mb-0">
-                        <thead><tr><th>วันที่</th><th>สินค้า</th><th>ประเภท</th><th>ร้าน</th><th>จำนวน</th><th>ทุน/ชิ้น</th><th>ราคาขาย</th><th>กำไร</th><th>หมายเหตุ</th><th></th></tr></thead>
+                        <thead><tr><th>เธงเธฑเธเธ—เธตเน</th><th>เธชเธดเธเธเนเธฒ</th><th>เธเธฃเธฐเน€เธ เธ—</th><th>เธฃเนเธฒเธ</th><th>เธเธณเธเธงเธ</th><th>เธ—เธธเธ/เธเธดเนเธ</th><th>เธฃเธฒเธเธฒเธเธฒเธข</th><th>เธเธณเนเธฃ</th><th>เธซเธกเธฒเธขเน€เธซเธ•เธธ</th><th></th></tr></thead>
                         <tbody id="sl-tbody"></tbody>
                         <tfoot id="sl-tfoot" class="fw-bold table-light"></tfoot>
                     </table>
@@ -430,48 +430,48 @@
         <!-- =============================== EXPENSES =============================== -->
         <section id="page-expenses" class="page-section">
             <div class="table-card mb-3">
-                <div class="card-header"><span class="fw-semibold"><i class="bi bi-wallet2 me-2"></i>บันทึกค่าใช้จ่าย</span></div>
+                <div class="card-header"><span class="fw-semibold"><i class="bi bi-wallet2 me-2"></i>เธเธฑเธเธ—เธถเธเธเนเธฒเนเธเนเธเนเธฒเธข</span></div>
                 <div class="p-3">
                     <div class="row g-2">
                         <div class="col-6 col-md-2">
-                            <label class="form-label">วันที่</label>
+                            <label class="form-label">เธงเธฑเธเธ—เธตเน</label>
                             <input type="date" class="form-control" id="ex-date">
                         </div>
                         <div class="col-12 col-md-3">
-                            <label class="form-label">รายการ</label>
-                            <input type="text" class="form-control" id="ex-name" placeholder="เช่น ของไหว้พระ, ค่ารถ, ค่าไฟ...">
+                            <label class="form-label">เธฃเธฒเธขเธเธฒเธฃ</label>
+                            <input type="text" class="form-control" id="ex-name" placeholder="เน€เธเนเธ เธเธญเธเนเธซเธงเนเธเธฃเธฐ, เธเนเธฒเธฃเธ–, เธเนเธฒเนเธ...">
                         </div>
                         <div class="col-6 col-md-2">
-                            <label class="form-label">ประเภท</label>
+                            <label class="form-label">เธเธฃเธฐเน€เธ เธ—</label>
                             <select class="form-select" id="ex-type">
-                                <option>ค่าใช้จ่ายทั่วไป</option>
-                                <option>ค่าเดินทาง/รถ</option>
-                                <option>ค่าสิ่งของ</option>
-                                <option>ค่าน้ำ/ค่าไฟ</option>
-                                <option>ค่าซ่อมแซม</option>
-                                <option>ไหว้พระ/สิ่งศักดิ์สิทธิ์</option>
-                                <option>อื่นๆ</option>
+                                <option>เธเนเธฒเนเธเนเธเนเธฒเธขเธ—เธฑเนเธงเนเธ</option>
+                                <option>เธเนเธฒเน€เธ”เธดเธเธ—เธฒเธ/เธฃเธ–</option>
+                                <option>เธเนเธฒเธชเธดเนเธเธเธญเธ</option>
+                                <option>เธเนเธฒเธเนเธณ/เธเนเธฒเนเธ</option>
+                                <option>เธเนเธฒเธเนเธญเธกเนเธเธก</option>
+                                <option>เนเธซเธงเนเธเธฃเธฐ/เธชเธดเนเธเธจเธฑเธเธ”เธดเนเธชเธดเธ—เธเธดเน</option>
+                                <option>เธญเธทเนเธเน</option>
                             </select>
                         </div>
                         <div class="col-6 col-md-2">
-                            <label class="form-label">ร้าน</label>
+                            <label class="form-label">เธฃเนเธฒเธ</label>
                             <select class="form-select" id="ex-store">
-                                <option value="1" id="ex-s1">สาขา 1</option>
-                                <option value="2" id="ex-s2">สาขา 2</option>
-                                <option value="ทั้งสอง">ทั้งสอง</option>
+                                <option value="1" id="ex-s1">เธชเธฒเธเธฒ 1</option>
+                                <option value="2" id="ex-s2">เธชเธฒเธเธฒ 2</option>
+                                <option value="เธ—เธฑเนเธเธชเธญเธ">เธ—เธฑเนเธเธชเธญเธ</option>
                             </select>
                         </div>
                         <div class="col-6 col-md-2">
-                            <label class="form-label">จำนวนเงิน (฿)</label>
+                            <label class="form-label">เธเธณเธเธงเธเน€เธเธดเธ (เธฟ)</label>
                             <input type="number" class="form-control" id="ex-amount" placeholder="0">
                         </div>
                         <div class="col-12 col-md-3">
-                            <label class="form-label">หมายเหตุ</label>
-                            <input type="text" class="form-control" id="ex-note" placeholder="รายละเอียด...">
+                            <label class="form-label">เธซเธกเธฒเธขเน€เธซเธ•เธธ</label>
+                            <input type="text" class="form-control" id="ex-note" placeholder="เธฃเธฒเธขเธฅเธฐเน€เธญเธตเธขเธ”...">
                         </div>
                         <div class="col-12 col-md-2 d-flex align-items-end">
                             <button class="btn btn-warning w-100 fw-semibold" onclick="saveExpense()">
-                                <i class="bi bi-plus-circle me-1"></i>บันทึก
+                                <i class="bi bi-plus-circle me-1"></i>เธเธฑเธเธ—เธถเธ
                             </button>
                         </div>
                     </div>
@@ -479,12 +479,12 @@
             </div>
             <div class="table-card">
                 <div class="card-header">
-                    <span class="fw-semibold">ประวัติค่าใช้จ่าย</span>
+                    <span class="fw-semibold">เธเธฃเธฐเธงเธฑเธ•เธดเธเนเธฒเนเธเนเธเนเธฒเธข</span>
                     <input type="month" class="form-control form-control-sm" id="ex-month-f" onchange="renderExpenses()" style="width:auto;">
                 </div>
                 <div class="table-responsive">
                     <table class="table table-hover mb-0">
-                        <thead><tr><th>วันที่</th><th>รายการ</th><th>ประเภท</th><th>ร้าน</th><th>จำนวนเงิน</th><th>หมายเหตุ</th><th></th></tr></thead>
+                        <thead><tr><th>เธงเธฑเธเธ—เธตเน</th><th>เธฃเธฒเธขเธเธฒเธฃ</th><th>เธเธฃเธฐเน€เธ เธ—</th><th>เธฃเนเธฒเธ</th><th>เธเธณเธเธงเธเน€เธเธดเธ</th><th>เธซเธกเธฒเธขเน€เธซเธ•เธธ</th><th></th></tr></thead>
                         <tbody id="ex-tbody"></tbody>
                         <tfoot id="ex-tfoot" class="fw-bold table-light"></tfoot>
                     </table>
@@ -495,54 +495,54 @@
         <!-- =============================== PAWN / TRADE-IN =============================== -->
         <section id="page-pawn" class="page-section">
             <div class="table-card mb-3">
-                <div class="card-header"><span class="fw-semibold"><i class="bi bi-shield-lock me-2"></i>รับจำนำ / รับเทิร์น</span></div>
+                <div class="card-header"><span class="fw-semibold"><i class="bi bi-shield-lock me-2"></i>เธฃเธฑเธเธเธณเธเธณ / เธฃเธฑเธเน€เธ—เธดเธฃเนเธ</span></div>
                 <div class="p-3">
                     <div class="row g-2">
                         <div class="col-6 col-md-2">
-                            <label class="form-label">วันที่</label>
+                            <label class="form-label">เธงเธฑเธเธ—เธตเน</label>
                             <input type="date" class="form-control" id="pw-date">
                         </div>
                         <div class="col-6 col-md-2">
-                            <label class="form-label">ประเภท</label>
+                            <label class="form-label">เธเธฃเธฐเน€เธ เธ—</label>
                             <select class="form-select" id="pw-type">
-                                <option>รับจำนำ</option>
-                                <option>รับเทิร์น</option>
+                                <option>เธฃเธฑเธเธเธณเธเธณ</option>
+                                <option>เธฃเธฑเธเน€เธ—เธดเธฃเนเธ</option>
                             </select>
                         </div>
                         <div class="col-6 col-md-3">
-                            <label class="form-label">ชื่อลูกค้า</label>
-                            <input type="text" class="form-control" id="pw-customer" placeholder="ชื่อ-นามสกุล">
+                            <label class="form-label">เธเธทเนเธญเธฅเธนเธเธเนเธฒ</label>
+                            <input type="text" class="form-control" id="pw-customer" placeholder="เธเธทเนเธญ-เธเธฒเธกเธชเธเธธเธฅ">
                         </div>
                         <div class="col-6 col-md-2">
-                            <label class="form-label">เบอร์โทร</label>
+                            <label class="form-label">เน€เธเธญเธฃเนเนเธ—เธฃ</label>
                             <input type="text" class="form-control" id="pw-phone" placeholder="0xx-xxx-xxxx">
                         </div>
                         <div class="col-12 col-md-3">
-                            <label class="form-label">รายการ (ยี่ห้อ/รุ่น)</label>
-                            <input type="text" class="form-control" id="pw-item" placeholder="เช่น iPhone 14 Pro Max 256GB">
+                            <label class="form-label">เธฃเธฒเธขเธเธฒเธฃ (เธขเธตเนเธซเนเธญ/เธฃเธธเนเธ)</label>
+                            <input type="text" class="form-control" id="pw-item" placeholder="เน€เธเนเธ iPhone 14 Pro Max 256GB">
                         </div>
                         <div class="col-6 col-md-2">
-                            <label class="form-label">ราคา (฿)</label>
+                            <label class="form-label">เธฃเธฒเธเธฒ (เธฟ)</label>
                             <input type="number" class="form-control" id="pw-price" placeholder="0">
                         </div>
                         <div class="col-6 col-md-2">
-                            <label class="form-label">วันครบกำหนด</label>
+                            <label class="form-label">เธงเธฑเธเธเธฃเธเธเธณเธซเธเธ”</label>
                             <input type="date" class="form-control" id="pw-due">
                         </div>
                         <div class="col-6 col-md-2">
-                            <label class="form-label">ร้าน</label>
+                            <label class="form-label">เธฃเนเธฒเธ</label>
                             <select class="form-select" id="pw-store">
-                                <option value="1" id="pw-s1">สาขา 1</option>
-                                <option value="2" id="pw-s2">สาขา 2</option>
+                                <option value="1" id="pw-s1">เธชเธฒเธเธฒ 1</option>
+                                <option value="2" id="pw-s2">เธชเธฒเธเธฒ 2</option>
                             </select>
                         </div>
                         <div class="col-12 col-md-3">
-                            <label class="form-label">หมายเหตุ / IMEI / สภาพ</label>
-                            <input type="text" class="form-control" id="pw-note" placeholder="IMEI, สภาพเครื่อง, อุปกรณ์เสริม...">
+                            <label class="form-label">เธซเธกเธฒเธขเน€เธซเธ•เธธ / IMEI / เธชเธ เธฒเธ</label>
+                            <input type="text" class="form-control" id="pw-note" placeholder="IMEI, เธชเธ เธฒเธเน€เธเธฃเธทเนเธญเธ, เธญเธธเธเธเธฃเธ“เนเน€เธชเธฃเธดเธก...">
                         </div>
                         <div class="col-12 col-md-3 d-flex align-items-end">
                             <button class="btn btn-primary w-100 fw-semibold" onclick="savePawn()">
-                                <i class="bi bi-plus-circle me-1"></i>บันทึกรายการ
+                                <i class="bi bi-plus-circle me-1"></i>เธเธฑเธเธ—เธถเธเธฃเธฒเธขเธเธฒเธฃ
                             </button>
                         </div>
                     </div>
@@ -550,24 +550,24 @@
             </div>
             <div class="table-card">
                 <div class="card-header">
-                    <span class="fw-semibold">รายการจำนำ / เทิร์น</span>
+                    <span class="fw-semibold">เธฃเธฒเธขเธเธฒเธฃเธเธณเธเธณ / เน€เธ—เธดเธฃเนเธ</span>
                     <div class="d-flex gap-2">
                         <select class="form-select form-select-sm" id="pw-type-f" onchange="renderPawn()" style="width:auto;">
-                            <option value="">ทุกประเภท</option>
-                            <option>รับจำนำ</option>
-                            <option>รับเทิร์น</option>
+                            <option value="">เธ—เธธเธเธเธฃเธฐเน€เธ เธ—</option>
+                            <option>เธฃเธฑเธเธเธณเธเธณ</option>
+                            <option>เธฃเธฑเธเน€เธ—เธดเธฃเนเธ</option>
                         </select>
                         <select class="form-select form-select-sm" id="pw-status-f" onchange="renderPawn()" style="width:auto;">
-                            <option value="">ทุกสถานะ</option>
-                            <option>ค้างอยู่</option>
-                            <option>ไถ่คืนแล้ว</option>
-                            <option>ขายแล้ว</option>
+                            <option value="">เธ—เธธเธเธชเธ–เธฒเธเธฐ</option>
+                            <option>เธเนเธฒเธเธญเธขเธนเน</option>
+                            <option>เนเธ–เนเธเธทเธเนเธฅเนเธง</option>
+                            <option>เธเธฒเธขเนเธฅเนเธง</option>
                         </select>
                     </div>
                 </div>
                 <div class="table-responsive">
                     <table class="table table-hover mb-0">
-                        <thead><tr><th>วันที่</th><th>ประเภท</th><th>ลูกค้า</th><th>เบอร์</th><th>รายการ</th><th>ราคา</th><th>ครบกำหนด</th><th>ร้าน</th><th>สถานะ</th><th>จัดการ</th></tr></thead>
+                        <thead><tr><th>เธงเธฑเธเธ—เธตเน</th><th>เธเธฃเธฐเน€เธ เธ—</th><th>เธฅเธนเธเธเนเธฒ</th><th>เน€เธเธญเธฃเน</th><th>เธฃเธฒเธขเธเธฒเธฃ</th><th>เธฃเธฒเธเธฒ</th><th>เธเธฃเธเธเธณเธซเธเธ”</th><th>เธฃเนเธฒเธ</th><th>เธชเธ–เธฒเธเธฐ</th><th>เธเธฑเธ”เธเธฒเธฃ</th></tr></thead>
                         <tbody id="pw-tbody"></tbody>
                     </table>
                 </div>
@@ -577,64 +577,64 @@
         <!-- =============================== REPAIR =============================== -->
         <section id="page-repair" class="page-section">
             <div class="table-card mb-3">
-                <div class="card-header"><span class="fw-semibold"><i class="bi bi-tools me-2"></i>รับงานซ่อม</span></div>
+                <div class="card-header"><span class="fw-semibold"><i class="bi bi-tools me-2"></i>เธฃเธฑเธเธเธฒเธเธเนเธญเธก</span></div>
                 <div class="p-3">
                     <div class="row g-2">
                         <div class="col-6 col-md-2">
-                            <label class="form-label">วันที่รับ</label>
+                            <label class="form-label">เธงเธฑเธเธ—เธตเนเธฃเธฑเธ</label>
                             <input type="date" class="form-control" id="rp-date">
                         </div>
                         <div class="col-6 col-md-3">
-                            <label class="form-label">ชื่อลูกค้า</label>
-                            <input type="text" class="form-control" id="rp-customer" placeholder="ชื่อ-นามสกุล">
+                            <label class="form-label">เธเธทเนเธญเธฅเธนเธเธเนเธฒ</label>
+                            <input type="text" class="form-control" id="rp-customer" placeholder="เธเธทเนเธญ-เธเธฒเธกเธชเธเธธเธฅ">
                         </div>
                         <div class="col-6 col-md-2">
-                            <label class="form-label">เบอร์โทร</label>
+                            <label class="form-label">เน€เธเธญเธฃเนเนเธ—เธฃ</label>
                             <input type="text" class="form-control" id="rp-phone" placeholder="0xx-xxx-xxxx">
                         </div>
                         <div class="col-6 col-md-3">
-                            <label class="form-label">รุ่นโทรศัพท์</label>
-                            <input type="text" class="form-control" id="rp-model" placeholder="เช่น iPhone 13, Samsung A54">
+                            <label class="form-label">เธฃเธธเนเธเนเธ—เธฃเธจเธฑเธเธ—เน</label>
+                            <input type="text" class="form-control" id="rp-model" placeholder="เน€เธเนเธ iPhone 13, Samsung A54">
                         </div>
                         <div class="col-12 col-md-4">
-                            <label class="form-label">อาการ / งานที่ซ่อม</label>
-                            <input type="text" class="form-control" id="rp-symptom" placeholder="เช่น จอแตก, แบตเสื่อม, น้ำเข้า, ไอซีชาร์จ...">
+                            <label class="form-label">เธญเธฒเธเธฒเธฃ / เธเธฒเธเธ—เธตเนเธเนเธญเธก</label>
+                            <input type="text" class="form-control" id="rp-symptom" placeholder="เน€เธเนเธ เธเธญเนเธ•เธ, เนเธเธ•เน€เธชเธทเนเธญเธก, เธเนเธณเน€เธเนเธฒ, เนเธญเธเธตเธเธฒเธฃเนเธ...">
                         </div>
                         <div class="col-4 col-md-2">
-                            <label class="form-label">ค่าแรง (฿)</label>
+                            <label class="form-label">เธเนเธฒเนเธฃเธ (เธฟ)</label>
                             <input type="number" class="form-control" id="rp-labor" placeholder="0" oninput="calcRepTotal()">
                         </div>
                         <div class="col-4 col-md-2">
-                            <label class="form-label">ค่าอะไหล่ (฿)</label>
+                            <label class="form-label">เธเนเธฒเธญเธฐเนเธซเธฅเน (เธฟ)</label>
                             <input type="number" class="form-control" id="rp-parts" placeholder="0" oninput="calcRepTotal()">
                         </div>
                         <div class="col-4 col-md-2">
-                            <label class="form-label">รวม (฿)</label>
+                            <label class="form-label">เธฃเธงเธก (เธฟ)</label>
                             <input type="number" class="form-control bg-light fw-bold" id="rp-total" readonly>
                         </div>
                         <div class="col-6 col-md-2">
-                            <label class="form-label">ประกัน (เดือน)</label>
+                            <label class="form-label">เธเธฃเธฐเธเธฑเธ (เน€เธ”เธทเธญเธ)</label>
                             <select class="form-select" id="rp-warranty">
-                                <option value="0">ไม่มีประกัน</option>
-                                <option value="1">1 เดือน</option>
-                                <option value="3">3 เดือน</option>
-                                <option value="6">6 เดือน</option>
+                                <option value="0">เนเธกเนเธกเธตเธเธฃเธฐเธเธฑเธ</option>
+                                <option value="1">1 เน€เธ”เธทเธญเธ</option>
+                                <option value="3">3 เน€เธ”เธทเธญเธ</option>
+                                <option value="6">6 เน€เธ”เธทเธญเธ</option>
                             </select>
                         </div>
                         <div class="col-6 col-md-2">
-                            <label class="form-label">ร้าน</label>
+                            <label class="form-label">เธฃเนเธฒเธ</label>
                             <select class="form-select" id="rp-store">
-                                <option value="1" id="rp-s1">สาขา 1</option>
-                                <option value="2" id="rp-s2">สาขา 2</option>
+                                <option value="1" id="rp-s1">เธชเธฒเธเธฒ 1</option>
+                                <option value="2" id="rp-s2">เธชเธฒเธเธฒ 2</option>
                             </select>
                         </div>
                         <div class="col-12 col-md-4">
-                            <label class="form-label">หมายเหตุ</label>
-                            <input type="text" class="form-control" id="rp-note" placeholder="รายละเอียด, รหัสผ่าน, อาการเพิ่มเติม...">
+                            <label class="form-label">เธซเธกเธฒเธขเน€เธซเธ•เธธ</label>
+                            <input type="text" class="form-control" id="rp-note" placeholder="เธฃเธฒเธขเธฅเธฐเน€เธญเธตเธขเธ”, เธฃเธซเธฑเธชเธเนเธฒเธ, เธญเธฒเธเธฒเธฃเน€เธเธดเนเธกเน€เธ•เธดเธก...">
                         </div>
                         <div class="col-12 col-md-2 d-flex align-items-end">
                             <button class="btn btn-primary w-100 fw-semibold" onclick="saveRepair()">
-                                <i class="bi bi-tools me-1"></i>บันทึก
+                                <i class="bi bi-tools me-1"></i>เธเธฑเธเธ—เธถเธ
                             </button>
                         </div>
                     </div>
@@ -642,17 +642,17 @@
             </div>
             <div class="table-card">
                 <div class="card-header">
-                    <span class="fw-semibold">รายการงานซ่อม</span>
+                    <span class="fw-semibold">เธฃเธฒเธขเธเธฒเธฃเธเธฒเธเธเนเธญเธก</span>
                     <select class="form-select form-select-sm" id="rp-status-f" onchange="renderRepair()" style="width:auto;">
-                        <option value="">ทุกสถานะ</option>
-                        <option>กำลังซ่อม</option>
-                        <option>ซ่อมเสร็จ</option>
-                        <option>รับคืนแล้ว</option>
+                        <option value="">เธ—เธธเธเธชเธ–เธฒเธเธฐ</option>
+                        <option>เธเธณเธฅเธฑเธเธเนเธญเธก</option>
+                        <option>เธเนเธญเธกเน€เธชเธฃเนเธ</option>
+                        <option>เธฃเธฑเธเธเธทเธเนเธฅเนเธง</option>
                     </select>
                 </div>
                 <div class="table-responsive">
                     <table class="table table-hover mb-0">
-                        <thead><tr><th>วันที่รับ</th><th>ลูกค้า</th><th>เบอร์</th><th>รุ่น</th><th>อาการ</th><th>รวม</th><th>ประกัน</th><th>ร้าน</th><th>สถานะ</th><th></th></tr></thead>
+                        <thead><tr><th>เธงเธฑเธเธ—เธตเนเธฃเธฑเธ</th><th>เธฅเธนเธเธเนเธฒ</th><th>เน€เธเธญเธฃเน</th><th>เธฃเธธเนเธ</th><th>เธญเธฒเธเธฒเธฃ</th><th>เธฃเธงเธก</th><th>เธเธฃเธฐเธเธฑเธ</th><th>เธฃเนเธฒเธ</th><th>เธชเธ–เธฒเธเธฐ</th><th></th></tr></thead>
                         <tbody id="rp-tbody"></tbody>
                     </table>
                 </div>
@@ -664,56 +664,56 @@
             <div class="table-card mb-4 p-3">
                 <div class="row g-2 align-items-end">
                     <div class="col-md-5">
-                        <label class="form-label fw-semibold">เลือกช่วงวันที่</label>
+                        <label class="form-label fw-semibold">เน€เธฅเธทเธญเธเธเนเธงเธเธงเธฑเธเธ—เธตเน</label>
                         <div class="input-group">
                             <input type="date" class="form-control" id="rpt-from">
-                            <span class="input-group-text">ถึง</span>
+                            <span class="input-group-text">เธ–เธถเธ</span>
                             <input type="date" class="form-control" id="rpt-to">
                         </div>
                     </div>
                     <div class="col-md-2">
-                        <button class="btn btn-primary w-100" onclick="generateReport()"><i class="bi bi-search me-1"></i>ดูรายงาน</button>
+                        <button class="btn btn-primary w-100" onclick="generateReport()"><i class="bi bi-search me-1"></i>เธ”เธนเธฃเธฒเธขเธเธฒเธ</button>
                     </div>
                     <div class="col-md-5 d-flex gap-2 flex-wrap">
-                        <button class="btn btn-outline-secondary btn-sm" onclick="setReportRange('today')">วันนี้</button>
-                        <button class="btn btn-outline-secondary btn-sm" onclick="setReportRange('week')">สัปดาห์นี้</button>
-                        <button class="btn btn-outline-secondary btn-sm" onclick="setReportRange('month')">เดือนนี้</button>
-                        <button class="btn btn-outline-secondary btn-sm" onclick="setReportRange('year')">ปีนี้</button>
+                        <button class="btn btn-outline-secondary btn-sm" onclick="setReportRange('today')">เธงเธฑเธเธเธตเน</button>
+                        <button class="btn btn-outline-secondary btn-sm" onclick="setReportRange('week')">เธชเธฑเธเธ”เธฒเธซเนเธเธตเน</button>
+                        <button class="btn btn-outline-secondary btn-sm" onclick="setReportRange('month')">เน€เธ”เธทเธญเธเธเธตเน</button>
+                        <button class="btn btn-outline-secondary btn-sm" onclick="setReportRange('year')">เธเธตเธเธตเน</button>
                     </div>
                 </div>
             </div>
 
             <div id="rpt-results" style="display:none;">
                 <div class="row g-3 mb-3">
-                    <div class="col-md-3"><div class="stat-card border-start border-4 border-primary"><div class="small text-muted">ยอดขายรวม</div><div class="h5 fw-bold mb-0" id="rpt-sales">฿0</div></div></div>
-                    <div class="col-md-3"><div class="stat-card border-start border-4 border-success"><div class="small text-muted">กำไรจากการขาย</div><div class="h5 fw-bold mb-0 profit-pos" id="rpt-profit">฿0</div></div></div>
-                    <div class="col-md-3"><div class="stat-card border-start border-4 border-warning"><div class="small text-muted">ค่าใช้จ่ายรวม</div><div class="h5 fw-bold mb-0 text-warning" id="rpt-expense">฿0</div></div></div>
-                    <div class="col-md-3"><div class="stat-card border-start border-4 border-danger"><div class="small text-muted">กำไรสุทธิ</div><div class="h5 fw-bold mb-0" id="rpt-net">฿0</div></div></div>
+                    <div class="col-md-3"><div class="stat-card border-start border-4 border-primary"><div class="small text-muted">เธขเธญเธ”เธเธฒเธขเธฃเธงเธก</div><div class="h5 fw-bold mb-0" id="rpt-sales">เธฟ0</div></div></div>
+                    <div class="col-md-3"><div class="stat-card border-start border-4 border-success"><div class="small text-muted">เธเธณเนเธฃเธเธฒเธเธเธฒเธฃเธเธฒเธข</div><div class="h5 fw-bold mb-0 profit-pos" id="rpt-profit">เธฟ0</div></div></div>
+                    <div class="col-md-3"><div class="stat-card border-start border-4 border-warning"><div class="small text-muted">เธเนเธฒเนเธเนเธเนเธฒเธขเธฃเธงเธก</div><div class="h5 fw-bold mb-0 text-warning" id="rpt-expense">เธฟ0</div></div></div>
+                    <div class="col-md-3"><div class="stat-card border-start border-4 border-danger"><div class="small text-muted">เธเธณเนเธฃเธชเธธเธ—เธเธด</div><div class="h5 fw-bold mb-0" id="rpt-net">เธฟ0</div></div></div>
                 </div>
                 <div class="row g-3">
                     <div class="col-md-6">
                         <div class="table-card">
-                            <div class="card-header"><span class="fw-semibold">ยอดแยกตามร้าน</span></div>
+                            <div class="card-header"><span class="fw-semibold">เธขเธญเธ”เนเธขเธเธ•เธฒเธกเธฃเนเธฒเธ</span></div>
                             <div class="table-responsive">
-                                <table class="table mb-0"><thead><tr><th>ร้าน</th><th>จำนวนบิล</th><th>ยอดขาย</th><th>กำไร</th></tr></thead>
+                                <table class="table mb-0"><thead><tr><th>เธฃเนเธฒเธ</th><th>เธเธณเธเธงเธเธเธดเธฅ</th><th>เธขเธญเธ”เธเธฒเธข</th><th>เธเธณเนเธฃ</th></tr></thead>
                                 <tbody id="rpt-by-store"></tbody></table>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="table-card">
-                            <div class="card-header"><span class="fw-semibold">ยอดแยกตามประเภท</span></div>
+                            <div class="card-header"><span class="fw-semibold">เธขเธญเธ”เนเธขเธเธ•เธฒเธกเธเธฃเธฐเน€เธ เธ—</span></div>
                             <div class="table-responsive">
-                                <table class="table mb-0"><thead><tr><th>ประเภท</th><th>จำนวน</th><th>ยอดขาย</th><th>กำไร</th></tr></thead>
+                                <table class="table mb-0"><thead><tr><th>เธเธฃเธฐเน€เธ เธ—</th><th>เธเธณเธเธงเธ</th><th>เธขเธญเธ”เธเธฒเธข</th><th>เธเธณเนเธฃ</th></tr></thead>
                                 <tbody id="rpt-by-type"></tbody></table>
                             </div>
                         </div>
                     </div>
                     <div class="col-12">
                         <div class="table-card">
-                            <div class="card-header"><span class="fw-semibold">ค่าใช้จ่ายแยกตามประเภท</span></div>
+                            <div class="card-header"><span class="fw-semibold">เธเนเธฒเนเธเนเธเนเธฒเธขเนเธขเธเธ•เธฒเธกเธเธฃเธฐเน€เธ เธ—</span></div>
                             <div class="table-responsive">
-                                <table class="table mb-0"><thead><tr><th>ประเภท</th><th>จำนวนรายการ</th><th>รวมเงิน</th></tr></thead>
+                                <table class="table mb-0"><thead><tr><th>เธเธฃเธฐเน€เธ เธ—</th><th>เธเธณเธเธงเธเธฃเธฒเธขเธเธฒเธฃ</th><th>เธฃเธงเธกเน€เธเธดเธ</th></tr></thead>
                                 <tbody id="rpt-exp-type"></tbody></table>
                             </div>
                         </div>
@@ -730,62 +730,62 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title fw-bold" id="stk-modal-title">เพิ่มสินค้าในสต๊อค</h5>
+                <h5 class="modal-title fw-bold" id="stk-modal-title">เน€เธเธดเนเธกเธชเธดเธเธเนเธฒเนเธเธชเธ•เนเธญเธ</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
                 <input type="hidden" id="stk-edit-row">
                 <div class="row g-3">
                     <div class="col-md-6">
-                        <label class="form-label">ชื่อสินค้า <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="sm-name" placeholder="ชื่อสินค้า">
+                        <label class="form-label">เธเธทเนเธญเธชเธดเธเธเนเธฒ <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="sm-name" placeholder="เธเธทเนเธญเธชเธดเธเธเนเธฒ">
                     </div>
                     <div class="col-md-6">
-                        <label class="form-label">ยี่ห้อ / รุ่น</label>
-                        <input type="text" class="form-control" id="sm-brand" placeholder="เช่น Apple iPhone 15 Pro 256GB">
+                        <label class="form-label">เธขเธตเนเธซเนเธญ / เธฃเธธเนเธ</label>
+                        <input type="text" class="form-control" id="sm-brand" placeholder="เน€เธเนเธ Apple iPhone 15 Pro 256GB">
                     </div>
                     <div class="col-md-4">
-                        <label class="form-label">ประเภท</label>
+                        <label class="form-label">เธเธฃเธฐเน€เธ เธ—</label>
                         <select class="form-select" id="sm-type">
-                            <option>โทรศัพท์มือถือ</option>
-                            <option>เคส/ฟิล์ม/อุปกรณ์</option>
-                            <option>อะไหล่ซ่อม</option>
-                            <option>รับจำนำ/เทิร์น</option>
+                            <option>เนเธ—เธฃเธจเธฑเธเธ—เนเธกเธทเธญเธ–เธทเธญ</option>
+                            <option>เน€เธเธช/เธเธดเธฅเนเธก/เธญเธธเธเธเธฃเธ“เน</option>
+                            <option>เธญเธฐเนเธซเธฅเนเธเนเธญเธก</option>
+                            <option>เธฃเธฑเธเธเธณเธเธณ/เน€เธ—เธดเธฃเนเธ</option>
                         </select>
                     </div>
                     <div class="col-md-4">
-                        <label class="form-label">ร้าน</label>
+                        <label class="form-label">เธฃเนเธฒเธ</label>
                         <select class="form-select" id="sm-store">
-                            <option value="1" id="sm-s1">สาขา 1</option>
-                            <option value="2" id="sm-s2">สาขา 2</option>
-                            <option value="ทั้งสอง">ทั้งสอง</option>
+                            <option value="1" id="sm-s1">เธชเธฒเธเธฒ 1</option>
+                            <option value="2" id="sm-s2">เธชเธฒเธเธฒ 2</option>
+                            <option value="เธ—เธฑเนเธเธชเธญเธ">เธ—เธฑเนเธเธชเธญเธ</option>
                         </select>
                     </div>
                     <div class="col-md-4">
-                        <label class="form-label">จำนวน</label>
+                        <label class="form-label">เธเธณเธเธงเธ</label>
                         <input type="number" class="form-control" id="sm-qty" value="1" min="0">
                     </div>
                     <div class="col-md-4">
-                        <label class="form-label">ราคาทุน (฿)</label>
+                        <label class="form-label">เธฃเธฒเธเธฒเธ—เธธเธ (เธฟ)</label>
                         <input type="number" class="form-control" id="sm-cost" placeholder="0" oninput="calcStockMargin()">
                     </div>
                     <div class="col-md-4">
-                        <label class="form-label">ราคาขาย (฿)</label>
+                        <label class="form-label">เธฃเธฒเธเธฒเธเธฒเธข (เธฟ)</label>
                         <input type="number" class="form-control" id="sm-price" placeholder="0" oninput="calcStockMargin()">
                     </div>
                     <div class="col-md-4">
-                        <label class="form-label">กำไร (โดยประมาณ)</label>
+                        <label class="form-label">เธเธณเนเธฃ (เนเธ”เธขเธเธฃเธฐเธกเธฒเธ“)</label>
                         <input type="text" class="form-control bg-light" id="sm-margin" readonly>
                     </div>
                     <div class="col-12">
-                        <label class="form-label">หมายเหตุ / IMEI / รายละเอียด</label>
-                        <input type="text" class="form-control" id="sm-note" placeholder="IMEI, สี, ความจุ, สภาพ, รายละเอียดอื่นๆ...">
+                        <label class="form-label">เธซเธกเธฒเธขเน€เธซเธ•เธธ / IMEI / เธฃเธฒเธขเธฅเธฐเน€เธญเธตเธขเธ”</label>
+                        <input type="text" class="form-control" id="sm-note" placeholder="IMEI, เธชเธต, เธเธงเธฒเธกเธเธธ, เธชเธ เธฒเธ, เธฃเธฒเธขเธฅเธฐเน€เธญเธตเธขเธ”เธญเธทเนเธเน...">
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-secondary" data-bs-dismiss="modal">ยกเลิก</button>
-                <button class="btn btn-primary fw-semibold" onclick="saveStock()"><i class="bi bi-save me-1"></i>บันทึก</button>
+                <button class="btn btn-secondary" data-bs-dismiss="modal">เธขเธเน€เธฅเธดเธ</button>
+                <button class="btn btn-primary fw-semibold" onclick="saveStock()"><i class="bi bi-save me-1"></i>เธเธฑเธเธ—เธถเธ</button>
             </div>
         </div>
     </div>
@@ -807,14 +807,14 @@
 <script>
 'use strict';
 
-// ─── CONFIG ───────────────────────────────────────────────
-let CFG = { clientId:'', sheetId:'', shop1:'สาขา 1', shop2:'สาขา 2', scope:'https://www.googleapis.com/auth/spreadsheets https://www.googleapis.com/auth/userinfo.email' };
-const SH = { stock:'สต๊อค', sales:'ยอดขาย', expenses:'ค่าใช้จ่าย', pawn:'รับจำนำ_เทิร์น', repair:'งานซ่อม' };
+// โ”€โ”€โ”€ CONFIG โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€
+let CFG = { clientId:'', sheetId:'', shop1:'เธชเธฒเธเธฒ 1', shop2:'เธชเธฒเธเธฒ 2', scope:'https://www.googleapis.com/auth/spreadsheets https://www.googleapis.com/auth/userinfo.email' };
+const SH = { stock:'เธชเธ•เนเธญเธ', sales:'เธขเธญเธ”เธเธฒเธข', expenses:'เธเนเธฒเนเธเนเธเนเธฒเธข', pawn:'เธฃเธฑเธเธเธณเธเธณ_เน€เธ—เธดเธฃเนเธ', repair:'เธเธฒเธเธเนเธญเธก' };
 
 let tokenClient, accessToken = null;
 let DB = { stock:[], sales:[], expenses:[], pawn:[], repair:[] };
 
-// ─── INIT ─────────────────────────────────────────────────
+// โ”€โ”€โ”€ INIT โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€
 document.addEventListener('DOMContentLoaded', () => {
     const saved = localStorage.getItem('psCFG');
     if (saved) CFG = {...CFG, ...JSON.parse(saved)};
@@ -839,14 +839,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function setVal(ids, val) { ids.forEach(id => { const e = document.getElementById(id); if(e) e.value = val; }); }
 
-// ─── AUTH ──────────────────────────────────────────────────
+// โ”€โ”€โ”€ AUTH โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€
 function saveConfig() {
     const cid = g('input-client-id').value.trim();
     const sid = g('input-sheet-id').value.trim();
-    if (!cid || !sid) { alert('กรุณากรอก Client ID และ Spreadsheet ID'); return; }
+    if (!cid || !sid) { alert('เธเธฃเธธเธ“เธฒเธเธฃเธญเธ Client ID เนเธฅเธฐ Spreadsheet ID'); return; }
     CFG.clientId = cid; CFG.sheetId = sid;
-    CFG.shop1 = g('input-shop1').value.trim() || 'สาขา 1';
-    CFG.shop2 = g('input-shop2').value.trim() || 'สาขา 2';
+    CFG.shop1 = g('input-shop1').value.trim() || 'เธชเธฒเธเธฒ 1';
+    CFG.shop2 = g('input-shop2').value.trim() || 'เธชเธฒเธเธฒ 2';
     localStorage.setItem('psCFG', JSON.stringify(CFG));
     initAuth();
 }
@@ -877,17 +877,18 @@ async function onSignedIn() {
     g('setup-screen').style.display = 'none';
     loading(true);
     await ensureSheets();
+    await ensureClaimColumn();
     await loadAll();
     loading(false);
     renderDashboard();
 }
 
 function signOut() {
-    if (!confirm('ต้องการออกจากระบบ?')) return;
+    if (!confirm('เธ•เนเธญเธเธเธฒเธฃเธญเธญเธเธเธฒเธเธฃเธฐเธเธ?')) return;
     sessionStorage.removeItem('psToken'); accessToken = null; location.reload();
 }
 
-// ─── SHEETS API ────────────────────────────────────────────
+// โ”€โ”€โ”€ SHEETS API โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€
 async function api(url, method='GET', body=null) {
     const opts = { method, headers: { 'Authorization':'Bearer '+accessToken, 'Content-Type':'application/json' } };
     if (body) opts.body = JSON.stringify(body);
@@ -929,35 +930,35 @@ async function ensureSheets() {
     const requests = missing.map(title => ({ addSheet: { properties: { title } } }));
     await api(`${BASE()}:batchUpdate`, 'POST', { requests });
     const hdrs = {
-        [SH.stock]:   [['ID','ชื่อสินค้า','ยี่ห้อ/รุ่น','ประเภท','ราคาทุน','ราคาขาย','จำนวน','ร้าน','หมายเหตุ','วันที่เพิ่ม']],
-        [SH.sales]:   [['วันที่','เลขที่','ชื่อสินค้า','ประเภท','ร้าน','จำนวน','ราคาทุน/ชิ้น','ราคาขาย','กำไร','หมายเหตุ']],
-        [SH.expenses]:[['วันที่','รายการ','ประเภท','ร้าน','จำนวนเงิน','หมายเหตุ']],
-        [SH.pawn]:    [['วันที่','ประเภท','ชื่อลูกค้า','เบอร์โทร','รายการ','ราคา','วันครบกำหนด','ร้าน','สถานะ','หมายเหตุ']],
-        [SH.repair]:  [['วันที่รับ','ชื่อลูกค้า','เบอร์โทร','รุ่น','อาการ','ค่าแรง','ค่าอะไหล่','รวม','ประกัน(เดือน)','ร้าน','สถานะ','หมายเหตุ']]
+        [SH.stock]:   [['ID','เธเธทเนเธญเธชเธดเธเธเนเธฒ','เธขเธตเนเธซเนเธญ/เธฃเธธเนเธ','เธเธฃเธฐเน€เธ เธ—','เธฃเธฒเธเธฒเธ—เธธเธ','เธฃเธฒเธเธฒเธเธฒเธข','เธเธณเธเธงเธ','เธฃเนเธฒเธ','เธซเธกเธฒเธขเน€เธซเธ•เธธ','เธงเธฑเธเธ—เธตเนเน€เธเธดเนเธก','เธเธณเธเธงเธเน€เธเธฅเธก']],
+        [SH.sales]:   [['เธงเธฑเธเธ—เธตเน','เน€เธฅเธเธ—เธตเน','เธเธทเนเธญเธชเธดเธเธเนเธฒ','เธเธฃเธฐเน€เธ เธ—','เธฃเนเธฒเธ','เธเธณเธเธงเธ','เธฃเธฒเธเธฒเธ—เธธเธ/เธเธดเนเธ','เธฃเธฒเธเธฒเธเธฒเธข','เธเธณเนเธฃ','เธซเธกเธฒเธขเน€เธซเธ•เธธ']],
+        [SH.expenses]:[['เธงเธฑเธเธ—เธตเน','เธฃเธฒเธขเธเธฒเธฃ','เธเธฃเธฐเน€เธ เธ—','เธฃเนเธฒเธ','เธเธณเธเธงเธเน€เธเธดเธ','เธซเธกเธฒเธขเน€เธซเธ•เธธ']],
+        [SH.pawn]:    [['เธงเธฑเธเธ—เธตเน','เธเธฃเธฐเน€เธ เธ—','เธเธทเนเธญเธฅเธนเธเธเนเธฒ','เน€เธเธญเธฃเนเนเธ—เธฃ','เธฃเธฒเธขเธเธฒเธฃ','เธฃเธฒเธเธฒ','เธงเธฑเธเธเธฃเธเธเธณเธซเธเธ”','เธฃเนเธฒเธ','เธชเธ–เธฒเธเธฐ','เธซเธกเธฒเธขเน€เธซเธ•เธธ']],
+        [SH.repair]:  [['เธงเธฑเธเธ—เธตเนเธฃเธฑเธ','เธเธทเนเธญเธฅเธนเธเธเนเธฒ','เน€เธเธญเธฃเนเนเธ—เธฃ','เธฃเธธเนเธ','เธญเธฒเธเธฒเธฃ','เธเนเธฒเนเธฃเธ','เธเนเธฒเธญเธฐเนเธซเธฅเน','เธฃเธงเธก','เธเธฃเธฐเธเธฑเธ(เน€เธ”เธทเธญเธ)','เธฃเนเธฒเธ','เธชเธ–เธฒเธเธฐ','เธซเธกเธฒเธขเน€เธซเธ•เธธ']]
     };
     for (const sh of missing) if (hdrs[sh]) await shAppend(sh, hdrs[sh]);
 }
 
 async function loadAll() {
     const [stk,sal,exp,pw,rp] = await Promise.all([
-        shGet(`${SH.stock}!A2:J`), shGet(`${SH.sales}!A2:J`), shGet(`${SH.expenses}!A2:F`),
+        shGet(`${SH.stock}!A2:K`), shGet(`${SH.sales}!A2:J`), shGet(`${SH.expenses}!A2:F`),
         shGet(`${SH.pawn}!A2:J`), shGet(`${SH.repair}!A2:L`)
     ]);
-    DB.stock   = stk.map((r,i) => ({ row:i+2, id:r[0]||'', name:r[1]||'', brand:r[2]||'', type:r[3]||'', cost:+r[4]||0, price:+r[5]||0, qty:+r[6]||0, store:r[7]||'', note:r[8]||'', date:r[9]||'' }));
+    DB.stock   = stk.map((r,i) => ({ row:i+2, id:r[0]||'', name:r[1]||'', brand:r[2]||'', type:r[3]||'', cost:+r[4]||0, price:+r[5]||0, qty:+r[6]||0, store:r[7]||'', note:r[8]||'', date:r[9]||'', claimQty:+r[10]||0 }));
     DB.sales   = sal.map((r,i) => ({ row:i+2, date:r[0]||'', ref:r[1]||'', name:r[2]||'', type:r[3]||'', store:r[4]||'', qty:+r[5]||0, cost:+r[6]||0, price:+r[7]||0, profit:+r[8]||0, note:r[9]||'' }));
     DB.expenses= exp.map((r,i) => ({ row:i+2, date:r[0]||'', name:r[1]||'', type:r[2]||'', store:r[3]||'', amount:+r[4]||0, note:r[5]||'' }));
-    DB.pawn    = pw.map((r,i)  => ({ row:i+2, date:r[0]||'', type:r[1]||'', customer:r[2]||'', phone:r[3]||'', item:r[4]||'', price:+r[5]||0, due:r[6]||'', store:r[7]||'', status:r[8]||'ค้างอยู่', note:r[9]||'' }));
-    DB.repair  = rp.map((r,i)  => ({ row:i+2, date:r[0]||'', customer:r[1]||'', phone:r[2]||'', model:r[3]||'', symptom:r[4]||'', labor:+r[5]||0, parts:+r[6]||0, total:+r[7]||0, warranty:r[8]||'0', store:r[9]||'', status:r[10]||'กำลังซ่อม', note:r[11]||'' }));
+    DB.pawn    = pw.map((r,i)  => ({ row:i+2, date:r[0]||'', type:r[1]||'', customer:r[2]||'', phone:r[3]||'', item:r[4]||'', price:+r[5]||0, due:r[6]||'', store:r[7]||'', status:r[8]||'เธเนเธฒเธเธญเธขเธนเน', note:r[9]||'' }));
+    DB.repair  = rp.map((r,i)  => ({ row:i+2, date:r[0]||'', customer:r[1]||'', phone:r[2]||'', model:r[3]||'', symptom:r[4]||'', labor:+r[5]||0, parts:+r[6]||0, total:+r[7]||0, warranty:r[8]||'0', store:r[9]||'', status:r[10]||'เธเธณเธฅเธฑเธเธเนเธญเธก', note:r[11]||'' }));
     populateSalePicker();
 }
 
-// ─── NAVIGATION ───────────────────────────────────────────
+// โ”€โ”€โ”€ NAVIGATION โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€
 function navTo(page, el) {
     document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
     g('page-'+page).classList.add('active');
     document.querySelectorAll('#sidebar .nav-item a').forEach(a => a.classList.remove('active'));
     if (el) el.classList.add('active');
-    const titles = { dashboard:'Dashboard', stock:'สต๊อคสินค้า', sales:'บันทึกการขาย', expenses:'ค่าใช้จ่าย', pawn:'รับจำนำ / เทิร์น', repair:'งานซ่อม', reports:'รายงาน' };
+    const titles = { dashboard:'Dashboard', stock:'เธชเธ•เนเธญเธเธชเธดเธเธเนเธฒ', sales:'เธเธฑเธเธ—เธถเธเธเธฒเธฃเธเธฒเธข', expenses:'เธเนเธฒเนเธเนเธเนเธฒเธข', pawn:'เธฃเธฑเธเธเธณเธเธณ / เน€เธ—เธดเธฃเนเธ', repair:'เธเธฒเธเธเนเธญเธก', reports:'เธฃเธฒเธขเธเธฒเธ' };
     g('page-title').textContent = titles[page] || page;
     const renders = { dashboard:renderDashboard, stock:renderStock, sales:renderSales, expenses:renderExpenses, pawn:renderPawn, repair:renderRepair };
     if (renders[page]) renders[page]();
@@ -971,92 +972,98 @@ function updateStoreNames() {
     ['topbar-s2','sl-s2','ex-s2','pw-s2','rp-s2','sm-s2'].forEach(id => { const e=g(id); if(e) e.textContent=s2; });
 }
 
-// ─── DASHBOARD ────────────────────────────────────────────
+// โ”€โ”€โ”€ DASHBOARD โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€
 function renderDashboard() {
     const today = new Date().toISOString().split('T')[0];
     const ym = today.slice(0,7);
     const sf = g('store-filter').value;
-    const flt = item => sf === 'all' || item.store == sf || item.store === 'ทั้งสอง';
+    const flt = item => sf === 'all' || item.store == sf || item.store === 'เธ—เธฑเนเธเธชเธญเธ';
 
     const todaySales = DB.sales.filter(s => s.date === today && flt(s));
-    setText('d-today-sales','฿'+fmt(sum(todaySales,'price')));
+    setText('d-today-sales','เธฟ'+fmt(sum(todaySales,'price')));
     const tp = sum(todaySales,'profit');
-    setHtml('d-today-profit', `<span class="${tp>=0?'profit-pos':'profit-neg'}">฿${fmt(tp)}</span>`);
-    setText('d-today-count', todaySales.length+' รายการ');
-    setText('d-pending-repair', DB.repair.filter(r => r.status==='กำลังซ่อม' && flt(r)).length+' งาน');
+    setHtml('d-today-profit', `<span class="${tp>=0?'profit-pos':'profit-neg'}">เธฟ${fmt(tp)}</span>`);
+    setText('d-today-count', todaySales.length+' เธฃเธฒเธขเธเธฒเธฃ');
+    setText('d-pending-repair', DB.repair.filter(r => r.status==='เธเธณเธฅเธฑเธเธเนเธญเธก' && flt(r)).length+' เธเธฒเธ');
 
     const mSales = DB.sales.filter(s => s.date.startsWith(ym) && flt(s));
     const mProfit = sum(mSales,'profit');
-    setText('d-month-sales','฿'+fmt(sum(mSales,'price')));
-    setHtml('d-month-profit',`฿${fmt(mProfit)}`);
+    setText('d-month-sales','เธฟ'+fmt(sum(mSales,'price')));
+    setHtml('d-month-profit',`เธฟ${fmt(mProfit)}`);
     const mExp = sum(DB.expenses.filter(e => e.date.startsWith(ym) && flt(e)), 'amount');
-    setText('d-month-exp','฿'+fmt(mExp));
+    setText('d-month-exp','เธฟ'+fmt(mExp));
     const net = mProfit - mExp;
-    setHtml('d-month-net',`<span class="${net>=0?'profit-pos':'profit-neg'}">฿${fmt(net)}</span>`);
+    setHtml('d-month-net',`<span class="${net>=0?'profit-pos':'profit-neg'}">เธฟ${fmt(net)}</span>`);
 
-    const stk = DB.stock.filter(s => sf==='all' || s.store==sf || s.store==='ทั้งสอง');
-    setText('d-stock-total', stk.length+' รายการ');
+    const stk = DB.stock.filter(s => sf==='all' || s.store==sf || s.store==='เธ—เธฑเนเธเธชเธญเธ');
+    setText('d-stock-total', stk.length+' เธฃเธฒเธขเธเธฒเธฃ');
     const low = stk.filter(s => s.qty > 0 && s.qty <= 2).length;
-    setText('d-stock-low', low>0 ? `⚠️ ใกล้หมด ${low} รายการ` : '');
+    setText('d-stock-low', low>0 ? `โ ๏ธ เนเธเธฅเนเธซเธกเธ” ${low} เธฃเธฒเธขเธเธฒเธฃ` : '');
 
     const recent = [...DB.sales].filter(s => flt(s)).sort((a,b)=>b.date.localeCompare(a.date)).slice(0,10);
     g('d-recent-sales').innerHTML = recent.length === 0
-        ? '<tr><td colspan="6" class="text-center text-muted py-4">ยังไม่มีรายการขาย</td></tr>'
+        ? '<tr><td colspan="6" class="text-center text-muted py-4">เธขเธฑเธเนเธกเนเธกเธตเธฃเธฒเธขเธเธฒเธฃเธเธฒเธข</td></tr>'
         : recent.map(s=>`<tr>
             <td>${thDate(s.date)}</td>
             <td class="fw-semibold">${esc(s.name)}</td>
             <td><span class="badge bg-light text-dark border small">${esc(s.type)}</span></td>
             <td><span class="badge ${sBadge(s.store)} px-2">${sName(s.store)}</span></td>
-            <td>฿${fmt(s.price)}</td>
-            <td class="${s.profit>=0?'profit-pos':'profit-neg'}">฿${fmt(s.profit)}</td>
+            <td>เธฟ${fmt(s.price)}</td>
+            <td class="${s.profit>=0?'profit-pos':'profit-neg'}">เธฟ${fmt(s.profit)}</td>
           </tr>`).join('');
 }
 
-// ─── STOCK ────────────────────────────────────────────────
+// โ”€โ”€โ”€ STOCK โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€
 function renderStock() {
     const sf = g('store-filter').value;
     const tf = g('stk-type-f').value;
     const srch = g('stk-search').value.toLowerCase();
     const items = DB.stock.filter(s => {
-        if (sf!=='all' && s.store!=sf && s.store!=='ทั้งสอง') return false;
+        if (sf!=='all' && s.store!=sf && s.store!=='เธ—เธฑเนเธเธชเธญเธ') return false;
         if (tf && s.type!==tf) return false;
         if (srch && !`${s.name} ${s.brand} ${s.note}`.toLowerCase().includes(srch)) return false;
         return s.name.trim() !== '';
     });
     const tbody = g('stk-tbody');
-    if (!items.length) { tbody.innerHTML='<tr><td colspan="9" class="text-center text-muted py-4">ไม่พบรายการ</td></tr>'; g('stk-summary').textContent=''; return; }
+    if (!items.length) { tbody.innerHTML='<tr><td colspan="11" class="text-center text-muted py-4">เนเธกเนเธเธเธฃเธฒเธขเธเธฒเธฃ</td></tr>'; g('stk-summary').textContent=''; return; }
     tbody.innerHTML = items.map(s => {
         const mg = s.price>0 ? Math.round((s.price-s.cost)/s.price*100) : 0;
-        const qc = s.qty<=0?'text-danger fw-bold':s.qty<=2?'text-warning fw-bold':'';
+        const sellable = s.qty - s.claimQty;
+        const qc = sellable<=0?'text-danger fw-bold':sellable<=2?'text-warning fw-bold':'';
         return `<tr>
             <td><div class="fw-semibold">${esc(s.name)}</div><div class="small text-muted">${esc(s.note)}</div></td>
             <td class="small">${esc(s.brand)}</td>
             <td><span class="badge bg-light text-dark border small">${esc(s.type)}</span></td>
-            <td>฿${fmt(s.cost)}</td>
-            <td>฿${fmt(s.price)}</td>
+            <td>เธฟ${fmt(s.cost)}</td>
+            <td>เธฟ${fmt(s.price)}</td>
             <td class="${mg>0?'profit-pos':''}">${mg>0?mg+'%':'-'}</td>
-            <td class="${qc}">${s.qty}</td>
+            <td>${s.qty}</td>
+            <td class="${qc}">${sellable}</td>
+            <td>${s.claimQty>0?`<span class="badge bg-warning text-dark">${s.claimQty}</span>`:'<span class="text-muted">-</span>'}</td>
             <td><span class="badge ${sBadge(s.store)} px-2">${sName(s.store)}</span></td>
             <td class="text-nowrap">
-                <button class="btn btn-sm btn-outline-primary me-1 px-2" onclick="editStock(${s.row})" title="แก้ไข"><i class="bi bi-pencil"></i></button>
-                <button class="btn btn-sm btn-outline-danger px-2" onclick="delRow('stock',${s.row})" title="ลบ"><i class="bi bi-trash"></i></button>
+                <button class="btn btn-sm btn-outline-primary me-1 px-2" onclick="editStock(${s.row})" title="เนเธเนเนเธ"><i class="bi bi-pencil"></i></button>
+                <button class="btn btn-sm btn-outline-warning me-1 px-2" onclick="claimItem(${s.row})" title="เน€เธเธฅเธก"><i class="bi bi-exclamation-triangle"></i></button>
+                ${s.claimQty>0?`<button class="btn btn-sm btn-outline-success me-1 px-2" onclick="receiveClaimItem(${s.row})" title="เธฃเธฑเธเธเธทเธเน€เธเธฅเธก"><i class="bi bi-arrow-return-left"></i></button>`:''}
+                <button class="btn btn-sm btn-outline-info me-1 px-2" onclick="restockItem(${s.row})" title="เธชเธฑเนเธเธเธทเนเธญเน€เธเธดเนเธก"><i class="bi bi-cart-plus"></i></button>
+                <button class="btn btn-sm btn-outline-danger px-2" onclick="delRow('stock',${s.row})" title="เธฅเธ"><i class="bi bi-trash"></i></button>
             </td>
         </tr>`;
     }).join('');
     const total = sum(items,'qty');
     const totalVal = items.reduce((a,s)=>a+s.price*s.qty,0);
-    g('stk-summary').textContent = `รวม ${items.length} รายการ | จำนวนชิ้น: ${total} | มูลค่าขาย: ฿${fmt(totalVal)}`;
+    g('stk-summary').textContent = `เธฃเธงเธก ${items.length} เธฃเธฒเธขเธเธฒเธฃ | เธเธณเธเธงเธเธเธดเนเธ: ${total} | เธกเธนเธฅเธเนเธฒเธเธฒเธข: เธฟ${fmt(totalVal)}`;
 }
 
 function openStockModal(data=null) {
-    g('stk-modal-title').textContent = data ? 'แก้ไขสินค้า' : 'เพิ่มสินค้าในสต๊อค';
+    g('stk-modal-title').textContent = data ? 'เนเธเนเนเธเธชเธดเธเธเนเธฒ' : 'เน€เธเธดเนเธกเธชเธดเธเธเนเธฒเนเธเธชเธ•เนเธญเธ';
     g('stk-edit-row').value = data ? data.row : '';
     const map = { 'sm-name':'name','sm-brand':'brand','sm-type':'type','sm-store':'store','sm-qty':'qty','sm-cost':'cost','sm-price':'price','sm-note':'note' };
     Object.entries(map).forEach(([id,key]) => { g(id).value = data ? (data[key]??'') : (id==='sm-qty'?'1':''); });
     g('sm-margin').value = '';
     if (data && data.price && data.cost) {
         const m = data.price - data.cost;
-        g('sm-margin').value = m>0 ? `+฿${fmt(m)} (${Math.round(m/data.price*100)}%)` : '-';
+        g('sm-margin').value = m>0 ? `+เธฟ${fmt(m)} (${Math.round(m/data.price*100)}%)` : '-';
     }
     new bootstrap.Modal(g('stockModal')).show();
 }
@@ -1065,12 +1072,12 @@ function editStock(row) { openStockModal(DB.stock.find(s=>s.row===row)); }
 
 function calcStockMargin() {
     const c = +g('sm-cost').value||0, p = +g('sm-price').value||0;
-    const m = p-c; g('sm-margin').value = m>0&&p>0 ? `+฿${fmt(m)} (${Math.round(m/p*100)}%)` : '';
+    const m = p-c; g('sm-margin').value = m>0&&p>0 ? `+เธฟ${fmt(m)} (${Math.round(m/p*100)}%)` : '';
 }
 
 async function saveStock() {
     const name = g('sm-name').value.trim();
-    if (!name) { showToast('กรุณากรอกชื่อสินค้า','warning'); return; }
+    if (!name) { showToast('เธเธฃเธธเธ“เธฒเธเธฃเธญเธเธเธทเนเธญเธชเธดเธเธเนเธฒ','warning'); return; }
     const editRow = g('stk-edit-row').value;
     const today = new Date().toISOString().split('T')[0];
     const oldId = editRow ? DB.stock.find(s=>s.row==editRow)?.id : null;
@@ -1081,22 +1088,22 @@ async function saveStock() {
     ];
     loading(true);
     try {
-        if (editRow) { await shUpdate(`${SH.stock}!A${editRow}:J${editRow}`, [row]); showToast('อัปเดตสินค้าเรียบร้อย ✅'); }
-        else { await shAppend(SH.stock, [row]); showToast('เพิ่มสินค้าเรียบร้อย ✅'); }
+        if (editRow) { await shUpdate(`${SH.stock}!A${editRow}:J${editRow}`, [row]); showToast('เธญเธฑเธเน€เธ”เธ•เธชเธดเธเธเนเธฒเน€เธฃเธตเธขเธเธฃเนเธญเธข โ…'); }
+        else { await shAppend(SH.stock, [row]); showToast('เน€เธเธดเนเธกเธชเธดเธเธเนเธฒเน€เธฃเธตเธขเธเธฃเนเธญเธข โ…'); }
         bootstrap.Modal.getInstance(g('stockModal')).hide();
         await loadAll(); renderStock();
-    } catch(e) { showToast('เกิดข้อผิดพลาด: '+e.message,'danger'); }
+    } catch(e) { showToast('เน€เธเธดเธ”เธเนเธญเธเธดเธ”เธเธฅเธฒเธ”: '+e.message,'danger'); }
     loading(false);
 }
 
-// ─── SALES ────────────────────────────────────────────────
+// โ”€โ”€โ”€ SALES โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€
 function populateSalePicker() {
     const sf = g('store-filter').value;
     const sel = g('sl-product');
-    sel.innerHTML = '<option value="">-- เลือกจากสต๊อค --</option><option value="__manual__">✏️ พิมพ์ชื่อเอง (ไม่ตัดสต๊อค)</option>';
-    DB.stock.filter(s => s.name && s.qty>0 && (sf==='all'||s.store==sf||s.store==='ทั้งสอง'))
+    sel.innerHTML = '<option value="">-- เน€เธฅเธทเธญเธเธเธฒเธเธชเธ•เนเธญเธ --</option><option value="__manual__">โ๏ธ เธเธดเธกเธเนเธเธทเนเธญเน€เธญเธ (เนเธกเนเธ•เธฑเธ”เธชเธ•เนเธญเธ)</option>';
+    DB.stock.filter(s => s.name && s.qty>0 && (sf==='all'||s.store==sf||s.store==='เธ—เธฑเนเธเธชเธญเธ'))
         .forEach(s => sel.insertAdjacentHTML('beforeend',
-            `<option value="${s.row}" data-cost="${s.cost}" data-price="${s.price}" data-name="${esc(s.name)}" data-type="${esc(s.type)}">[${sName(s.store)}] ${esc(s.name)} ${esc(s.brand)} (เหลือ ${s.qty})</option>`
+            `<option value="${s.row}" data-cost="${s.cost}" data-price="${s.price}" data-name="${esc(s.name)}" data-type="${esc(s.type)}">[${sName(s.store)}] ${esc(s.name)} ${esc(s.brand)} (เน€เธซเธฅเธทเธญ ${s.qty})</option>`
         ));
 }
 
@@ -1118,8 +1125,8 @@ async function saveSale() {
     const date = g('sl-date').value;
     const pv = g('sl-product').value;
     const isManual = pv === '__manual__';
-    let name = isManual ? prompt('ชื่อสินค้า:','') : (g('sl-product').selectedOptions[0]?.dataset?.name||'');
-    if (!date || !name) { showToast('กรุณากรอกข้อมูลให้ครบ','warning'); return; }
+    let name = isManual ? prompt('เธเธทเนเธญเธชเธดเธเธเนเธฒ:','') : (g('sl-product').selectedOptions[0]?.dataset?.name||'');
+    if (!date || !name) { showToast('เธเธฃเธธเธ“เธฒเธเธฃเธญเธเธเนเธญเธกเธนเธฅเนเธซเนเธเธฃเธ','warning'); return; }
     const qty = +g('sl-qty').value||1;
     const cost = +g('sl-cost').value||0;
     const price = +g('sl-price').value||0;
@@ -1133,11 +1140,11 @@ async function saveSale() {
             const si = DB.stock.find(s=>s.row===+pv);
             if (si) await shUpdate(`${SH.stock}!G${si.row}`, [[Math.max(0,si.qty-qty)]]);
         }
-        showToast('บันทึกการขายเรียบร้อย ✅');
+        showToast('เธเธฑเธเธ—เธถเธเธเธฒเธฃเธเธฒเธขเน€เธฃเธตเธขเธเธฃเนเธญเธข โ…');
         setVal(['sl-cost','sl-price','sl-profit','sl-note'],'');
         g('sl-qty').value = '1'; g('sl-product').value = '';
         await loadAll(); renderSales(); renderDashboard();
-    } catch(e) { showToast('เกิดข้อผิดพลาด: '+e.message,'danger'); }
+    } catch(e) { showToast('เน€เธเธดเธ”เธเนเธญเธเธดเธ”เธเธฅเธฒเธ”: '+e.message,'danger'); }
     loading(false);
 }
 
@@ -1153,34 +1160,34 @@ function renderSales() {
     }).sort((a,b)=>b.date.localeCompare(a.date));
 
     const tbody = g('sl-tbody'), tfoot = g('sl-tfoot');
-    if (!items.length) { tbody.innerHTML='<tr><td colspan="10" class="text-center text-muted py-4">ไม่พบรายการ</td></tr>'; tfoot.innerHTML=''; return; }
+    if (!items.length) { tbody.innerHTML='<tr><td colspan="10" class="text-center text-muted py-4">เนเธกเนเธเธเธฃเธฒเธขเธเธฒเธฃ</td></tr>'; tfoot.innerHTML=''; return; }
     tbody.innerHTML = items.map(s=>`<tr>
         <td class="small">${thDate(s.date)}</td>
         <td class="fw-semibold">${esc(s.name)}</td>
         <td><span class="badge bg-light text-dark border" style="font-size:.75rem;">${esc(s.type)}</span></td>
         <td><span class="badge ${sBadge(s.store)} px-2">${sName(s.store)}</span></td>
         <td>${s.qty}</td>
-        <td>฿${fmt(s.cost)}</td>
-        <td>฿${fmt(s.price)}</td>
-        <td class="${s.profit>=0?'profit-pos':'profit-neg'}">฿${fmt(s.profit)}</td>
+        <td>เธฟ${fmt(s.cost)}</td>
+        <td>เธฟ${fmt(s.price)}</td>
+        <td class="${s.profit>=0?'profit-pos':'profit-neg'}">เธฟ${fmt(s.profit)}</td>
         <td class="small text-muted">${esc(s.note)}</td>
         <td><button class="btn btn-sm btn-outline-danger px-2" onclick="delRow('sales',${s.row})"><i class="bi bi-trash"></i></button></td>
     </tr>`).join('');
     const ts = sum(items,'price'), tp = sum(items,'profit');
-    tfoot.innerHTML = `<tr><td colspan="6" class="small">รวม ${items.length} รายการ</td><td>฿${fmt(ts)}</td><td class="profit-pos">฿${fmt(tp)}</td><td colspan="2"></td></tr>`;
+    tfoot.innerHTML = `<tr><td colspan="6" class="small">เธฃเธงเธก ${items.length} เธฃเธฒเธขเธเธฒเธฃ</td><td>เธฟ${fmt(ts)}</td><td class="profit-pos">เธฟ${fmt(tp)}</td><td colspan="2"></td></tr>`;
 }
 
-// ─── EXPENSES ─────────────────────────────────────────────
+// โ”€โ”€โ”€ EXPENSES โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€
 async function saveExpense() {
     const date = g('ex-date').value, name = g('ex-name').value.trim(), amount = +g('ex-amount').value||0;
-    if (!date||!name||!amount) { showToast('กรุณากรอกข้อมูลให้ครบ','warning'); return; }
+    if (!date||!name||!amount) { showToast('เธเธฃเธธเธ“เธฒเธเธฃเธญเธเธเนเธญเธกเธนเธฅเนเธซเนเธเธฃเธ','warning'); return; }
     loading(true);
     try {
         await shAppend(SH.expenses, [[date,name,g('ex-type').value,g('ex-store').value,amount,g('ex-note').value]]);
-        showToast('บันทึกค่าใช้จ่ายเรียบร้อย ✅');
+        showToast('เธเธฑเธเธ—เธถเธเธเนเธฒเนเธเนเธเนเธฒเธขเน€เธฃเธตเธขเธเธฃเนเธญเธข โ…');
         setVal(['ex-name','ex-amount','ex-note'],'');
         await loadAll(); renderExpenses();
-    } catch(e) { showToast('เกิดข้อผิดพลาด: '+e.message,'danger'); }
+    } catch(e) { showToast('เน€เธเธดเธ”เธเนเธญเธเธดเธ”เธเธฅเธฒเธ”: '+e.message,'danger'); }
     loading(false);
 }
 
@@ -1188,36 +1195,36 @@ function renderExpenses() {
     const sf = g('store-filter').value;
     const mf = g('ex-month-f').value;
     const items = DB.expenses.filter(e => {
-        if (sf!=='all' && e.store!=sf && e.store!=='ทั้งสอง') return false;
+        if (sf!=='all' && e.store!=sf && e.store!=='เธ—เธฑเนเธเธชเธญเธ') return false;
         if (mf && !e.date.startsWith(mf)) return false;
         return e.date !== '';
     }).sort((a,b)=>b.date.localeCompare(a.date));
 
     const tbody = g('ex-tbody'), tfoot = g('ex-tfoot');
-    if (!items.length) { tbody.innerHTML='<tr><td colspan="7" class="text-center text-muted py-4">ไม่พบรายการ</td></tr>'; tfoot.innerHTML=''; return; }
+    if (!items.length) { tbody.innerHTML='<tr><td colspan="7" class="text-center text-muted py-4">เนเธกเนเธเธเธฃเธฒเธขเธเธฒเธฃ</td></tr>'; tfoot.innerHTML=''; return; }
     tbody.innerHTML = items.map(e=>`<tr>
         <td class="small">${thDate(e.date)}</td>
         <td class="fw-semibold">${esc(e.name)}</td>
         <td><span class="badge bg-light text-dark border" style="font-size:.75rem;">${esc(e.type)}</span></td>
-        <td><span class="badge ${e.store==='ทั้งสอง'?'badge-both':sBadge(e.store)} px-2">${sName(e.store)}</span></td>
-        <td class="text-danger fw-semibold">฿${fmt(e.amount)}</td>
+        <td><span class="badge ${e.store==='เธ—เธฑเนเธเธชเธญเธ'?'badge-both':sBadge(e.store)} px-2">${sName(e.store)}</span></td>
+        <td class="text-danger fw-semibold">เธฟ${fmt(e.amount)}</td>
         <td class="small text-muted">${esc(e.note)}</td>
         <td><button class="btn btn-sm btn-outline-danger px-2" onclick="delRow('expenses',${e.row})"><i class="bi bi-trash"></i></button></td>
     </tr>`).join('');
-    tfoot.innerHTML = `<tr><td colspan="4" class="small">รวม ${items.length} รายการ</td><td class="text-danger">฿${fmt(sum(items,'amount'))}</td><td colspan="2"></td></tr>`;
+    tfoot.innerHTML = `<tr><td colspan="4" class="small">เธฃเธงเธก ${items.length} เธฃเธฒเธขเธเธฒเธฃ</td><td class="text-danger">เธฟ${fmt(sum(items,'amount'))}</td><td colspan="2"></td></tr>`;
 }
 
-// ─── PAWN ─────────────────────────────────────────────────
+// โ”€โ”€โ”€ PAWN โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€
 async function savePawn() {
     const date = g('pw-date').value, customer = g('pw-customer').value.trim(), item = g('pw-item').value.trim();
-    if (!date||!customer||!item) { showToast('กรุณากรอกข้อมูลให้ครบ','warning'); return; }
+    if (!date||!customer||!item) { showToast('เธเธฃเธธเธ“เธฒเธเธฃเธญเธเธเนเธญเธกเธนเธฅเนเธซเนเธเธฃเธ','warning'); return; }
     loading(true);
     try {
-        await shAppend(SH.pawn, [[date,g('pw-type').value,customer,g('pw-phone').value,item,+g('pw-price').value||0,g('pw-due').value,g('pw-store').value,'ค้างอยู่',g('pw-note').value]]);
-        showToast('บันทึกรายการเรียบร้อย ✅');
+        await shAppend(SH.pawn, [[date,g('pw-type').value,customer,g('pw-phone').value,item,+g('pw-price').value||0,g('pw-due').value,g('pw-store').value,'เธเนเธฒเธเธญเธขเธนเน',g('pw-note').value]]);
+        showToast('เธเธฑเธเธ—เธถเธเธฃเธฒเธขเธเธฒเธฃเน€เธฃเธตเธขเธเธฃเนเธญเธข โ…');
         setVal(['pw-customer','pw-phone','pw-item','pw-price','pw-due','pw-note'],'');
         await loadAll(); renderPawn();
-    } catch(e) { showToast('เกิดข้อผิดพลาด: '+e.message,'danger'); }
+    } catch(e) { showToast('เน€เธเธดเธ”เธเนเธญเธเธดเธ”เธเธฅเธฒเธ”: '+e.message,'danger'); }
     loading(false);
 }
 
@@ -1234,24 +1241,24 @@ function renderPawn() {
     }).sort((a,b)=>b.date.localeCompare(a.date));
 
     g('pw-tbody').innerHTML = items.length===0
-        ? '<tr><td colspan="10" class="text-center text-muted py-4">ไม่พบรายการ</td></tr>'
+        ? '<tr><td colspan="10" class="text-center text-muted py-4">เนเธกเนเธเธเธฃเธฒเธขเธเธฒเธฃ</td></tr>'
         : items.map(p => {
-            const overdue = p.due && p.due<today && p.status==='ค้างอยู่';
-            const sc = p.status==='ค้างอยู่'?(overdue?'bg-danger text-white':'bg-warning text-dark'):p.status==='ไถ่คืนแล้ว'?'bg-success text-white':'bg-secondary text-white';
+            const overdue = p.due && p.due<today && p.status==='เธเนเธฒเธเธญเธขเธนเน';
+            const sc = p.status==='เธเนเธฒเธเธญเธขเธนเน'?(overdue?'bg-danger text-white':'bg-warning text-dark'):p.status==='เนเธ–เนเธเธทเธเนเธฅเนเธง'?'bg-success text-white':'bg-secondary text-white';
             return `<tr class="${overdue?'row-overdue':''}">
                 <td class="small">${thDate(p.date)}</td>
-                <td><span class="badge ${p.type==='รับจำนำ'?'bg-primary':'bg-info text-dark'}">${esc(p.type)}</span></td>
+                <td><span class="badge ${p.type==='เธฃเธฑเธเธเธณเธเธณ'?'bg-primary':'bg-info text-dark'}">${esc(p.type)}</span></td>
                 <td class="fw-semibold">${esc(p.customer)}</td>
                 <td class="small">${esc(p.phone)}</td>
                 <td>${esc(p.item)}</td>
-                <td class="fw-semibold">฿${fmt(p.price)}</td>
+                <td class="fw-semibold">เธฟ${fmt(p.price)}</td>
                 <td class="small ${overdue?'text-danger fw-bold':''}">${p.due?thDate(p.due):'-'}</td>
                 <td><span class="badge ${sBadge(p.store)} px-2">${sName(p.store)}</span></td>
-                <td><span class="badge ${sc} px-2">${p.status}${overdue?' ⚠️':''}</span></td>
+                <td><span class="badge ${sc} px-2">${p.status}${overdue?' โ ๏ธ':''}</span></td>
                 <td class="text-nowrap">
-                    ${p.status==='ค้างอยู่'?`
-                    <button class="btn btn-sm btn-outline-success px-2 me-1" onclick="setPawnStatus(${p.row},'ไถ่คืนแล้ว')" title="ไถ่คืน"><i class="bi bi-check-circle"></i></button>
-                    <button class="btn btn-sm btn-outline-warning px-2 me-1" onclick="setPawnStatus(${p.row},'ขายแล้ว')" title="ขาย"><i class="bi bi-cash"></i></button>
+                    ${p.status==='เธเนเธฒเธเธญเธขเธนเน'?`
+                    <button class="btn btn-sm btn-outline-success px-2 me-1" onclick="setPawnStatus(${p.row},'เนเธ–เนเธเธทเธเนเธฅเนเธง')" title="เนเธ–เนเธเธทเธ"><i class="bi bi-check-circle"></i></button>
+                    <button class="btn btn-sm btn-outline-warning px-2 me-1" onclick="setPawnStatus(${p.row},'เธเธฒเธขเนเธฅเนเธง')" title="เธเธฒเธข"><i class="bi bi-cash"></i></button>
                     `:''}
                     <button class="btn btn-sm btn-outline-danger px-2" onclick="delRow('pawn',${p.row})"><i class="bi bi-trash"></i></button>
                 </td>
@@ -1261,12 +1268,12 @@ function renderPawn() {
 
 async function setPawnStatus(row, status) {
     loading(true);
-    try { await shUpdate(`${SH.pawn}!I${row}`, [[status]]); showToast('อัปเดตสถานะเรียบร้อย ✅'); await loadAll(); renderPawn(); }
-    catch(e) { showToast('เกิดข้อผิดพลาด','danger'); }
+    try { await shUpdate(`${SH.pawn}!I${row}`, [[status]]); showToast('เธญเธฑเธเน€เธ”เธ•เธชเธ–เธฒเธเธฐเน€เธฃเธตเธขเธเธฃเนเธญเธข โ…'); await loadAll(); renderPawn(); }
+    catch(e) { showToast('เน€เธเธดเธ”เธเนเธญเธเธดเธ”เธเธฅเธฒเธ”','danger'); }
     loading(false);
 }
 
-// ─── REPAIR ───────────────────────────────────────────────
+// โ”€โ”€โ”€ REPAIR โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€
 function calcRepTotal() {
     const l = +g('rp-labor').value||0, p = +g('rp-parts').value||0;
     g('rp-total').value = l+p;
@@ -1274,16 +1281,16 @@ function calcRepTotal() {
 
 async function saveRepair() {
     const date = g('rp-date').value, customer = g('rp-customer').value.trim(), model = g('rp-model').value.trim();
-    if (!date||!customer||!model) { showToast('กรุณากรอกข้อมูลให้ครบ','warning'); return; }
+    if (!date||!customer||!model) { showToast('เธเธฃเธธเธ“เธฒเธเธฃเธญเธเธเนเธญเธกเธนเธฅเนเธซเนเธเธฃเธ','warning'); return; }
     const labor = +g('rp-labor').value||0, parts = +g('rp-parts').value||0;
     loading(true);
     try {
-        await shAppend(SH.repair, [[date,customer,g('rp-phone').value,model,g('rp-symptom').value,labor,parts,labor+parts,g('rp-warranty').value,g('rp-store').value,'กำลังซ่อม',g('rp-note').value]]);
-        showToast('บันทึกงานซ่อมเรียบร้อย ✅');
+        await shAppend(SH.repair, [[date,customer,g('rp-phone').value,model,g('rp-symptom').value,labor,parts,labor+parts,g('rp-warranty').value,g('rp-store').value,'เธเธณเธฅเธฑเธเธเนเธญเธก',g('rp-note').value]]);
+        showToast('เธเธฑเธเธ—เธถเธเธเธฒเธเธเนเธญเธกเน€เธฃเธตเธขเธเธฃเนเธญเธข โ…');
         setVal(['rp-customer','rp-phone','rp-model','rp-symptom','rp-labor','rp-parts','rp-total','rp-note'],'');
         g('rp-warranty').value='0';
         await loadAll(); renderRepair(); renderDashboard();
-    } catch(e) { showToast('เกิดข้อผิดพลาด: '+e.message,'danger'); }
+    } catch(e) { showToast('เน€เธเธดเธ”เธเนเธญเธเธดเธ”เธเธฅเธฒเธ”: '+e.message,'danger'); }
     loading(false);
 }
 
@@ -1297,24 +1304,24 @@ function renderRepair() {
     }).sort((a,b)=>b.date.localeCompare(a.date));
 
     g('rp-tbody').innerHTML = items.length===0
-        ? '<tr><td colspan="10" class="text-center text-muted py-4">ไม่พบรายการ</td></tr>'
+        ? '<tr><td colspan="10" class="text-center text-muted py-4">เนเธกเนเธเธเธฃเธฒเธขเธเธฒเธฃ</td></tr>'
         : items.map(r => {
-            const sc = {'กำลังซ่อม':'bg-warning text-dark','ซ่อมเสร็จ':'bg-info text-dark','รับคืนแล้ว':'bg-success text-white'}[r.status]||'bg-secondary text-white';
-            const wt = r.warranty&&r.warranty!=='0' ? r.warranty+' เดือน' : '-';
+            const sc = {'เธเธณเธฅเธฑเธเธเนเธญเธก':'bg-warning text-dark','เธเนเธญเธกเน€เธชเธฃเนเธ':'bg-info text-dark','เธฃเธฑเธเธเธทเธเนเธฅเนเธง':'bg-success text-white'}[r.status]||'bg-secondary text-white';
+            const wt = r.warranty&&r.warranty!=='0' ? r.warranty+' เน€เธ”เธทเธญเธ' : '-';
             return `<tr>
                 <td class="small">${thDate(r.date)}</td>
                 <td class="fw-semibold">${esc(r.customer)}</td>
                 <td class="small">${esc(r.phone)}</td>
                 <td class="small">${esc(r.model)}</td>
                 <td class="small">${esc(r.symptom)}</td>
-                <td class="fw-semibold">฿${fmt(r.total)}</td>
+                <td class="fw-semibold">เธฟ${fmt(r.total)}</td>
                 <td><span class="badge bg-light text-dark border small">${wt}</span></td>
                 <td><span class="badge ${sBadge(r.store)} px-2">${sName(r.store)}</span></td>
                 <td>
                     <select class="form-select form-select-sm" style="width:auto;min-width:110px;" onchange="setRepairStatus(${r.row},this.value)">
-                        <option ${r.status==='กำลังซ่อม'?'selected':''}>กำลังซ่อม</option>
-                        <option ${r.status==='ซ่อมเสร็จ'?'selected':''}>ซ่อมเสร็จ</option>
-                        <option ${r.status==='รับคืนแล้ว'?'selected':''}>รับคืนแล้ว</option>
+                        <option ${r.status==='เธเธณเธฅเธฑเธเธเนเธญเธก'?'selected':''}>เธเธณเธฅเธฑเธเธเนเธญเธก</option>
+                        <option ${r.status==='เธเนเธญเธกเน€เธชเธฃเนเธ'?'selected':''}>เธเนเธญเธกเน€เธชเธฃเนเธ</option>
+                        <option ${r.status==='เธฃเธฑเธเธเธทเธเนเธฅเนเธง'?'selected':''}>เธฃเธฑเธเธเธทเธเนเธฅเนเธง</option>
                     </select>
                 </td>
                 <td><button class="btn btn-sm btn-outline-danger px-2" onclick="delRow('repair',${r.row})"><i class="bi bi-trash"></i></button></td>
@@ -1325,11 +1332,11 @@ function renderRepair() {
 async function setRepairStatus(row, status) {
     loading(true);
     try { await shUpdate(`${SH.repair}!K${row}`, [[status]]); await loadAll(); renderRepair(); }
-    catch(e) { showToast('เกิดข้อผิดพลาด','danger'); }
+    catch(e) { showToast('เน€เธเธดเธ”เธเนเธญเธเธดเธ”เธเธฅเธฒเธ”','danger'); }
     loading(false);
 }
 
-// ─── REPORTS ──────────────────────────────────────────────
+// โ”€โ”€โ”€ REPORTS โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€
 function setReportRange(r) {
     const today = new Date(), ys = today.toISOString().split('T')[0];
     let from, to = ys;
@@ -1343,69 +1350,69 @@ function setReportRange(r) {
 
 function generateReport() {
     const from=g('rpt-from').value, to=g('rpt-to').value;
-    if (!from||!to) { showToast('กรุณาเลือกช่วงวันที่','warning'); return; }
+    if (!from||!to) { showToast('เธเธฃเธธเธ“เธฒเน€เธฅเธทเธญเธเธเนเธงเธเธงเธฑเธเธ—เธตเน','warning'); return; }
     const sf = g('store-filter').value;
     const sales = DB.sales.filter(s=>s.date>=from&&s.date<=to&&(sf==='all'||s.store==sf)&&s.date!=='');
-    const exps  = DB.expenses.filter(e=>e.date>=from&&e.date<=to&&(sf==='all'||e.store==sf||e.store==='ทั้งสอง')&&e.date!=='');
+    const exps  = DB.expenses.filter(e=>e.date>=from&&e.date<=to&&(sf==='all'||e.store==sf||e.store==='เธ—เธฑเนเธเธชเธญเธ')&&e.date!=='');
 
     const ts=sum(sales,'price'), tp=sum(sales,'profit'), te=sum(exps,'amount'), net=tp-te;
-    setText('rpt-sales','฿'+fmt(ts));
-    setText('rpt-profit','฿'+fmt(tp));
-    setText('rpt-expense','฿'+fmt(te));
-    const ne=g('rpt-net'); ne.textContent='฿'+fmt(net); ne.className='h5 fw-bold mb-0 '+(net>=0?'profit-pos':'profit-neg');
+    setText('rpt-sales','เธฟ'+fmt(ts));
+    setText('rpt-profit','เธฟ'+fmt(tp));
+    setText('rpt-expense','เธฟ'+fmt(te));
+    const ne=g('rpt-net'); ne.textContent='เธฟ'+fmt(net); ne.className='h5 fw-bold mb-0 '+(net>=0?'profit-pos':'profit-neg');
 
     // By store
     g('rpt-by-store').innerHTML = ['1','2'].map(st => {
         const ss=sales.filter(s=>s.store==st);
-        return `<tr><td><span class="badge ${sBadge(st)} px-2">${sName(st)}</span></td><td>${ss.length}</td><td>฿${fmt(sum(ss,'price'))}</td><td class="profit-pos">฿${fmt(sum(ss,'profit'))}</td></tr>`;
+        return `<tr><td><span class="badge ${sBadge(st)} px-2">${sName(st)}</span></td><td>${ss.length}</td><td>เธฟ${fmt(sum(ss,'price'))}</td><td class="profit-pos">เธฟ${fmt(sum(ss,'profit'))}</td></tr>`;
     }).join('');
 
     // By type
     const tm={};
     sales.forEach(s=>{ if(!tm[s.type]) tm[s.type]={n:0,s:0,p:0}; tm[s.type].n+=s.qty; tm[s.type].s+=s.price; tm[s.type].p+=s.profit; });
     g('rpt-by-type').innerHTML = Object.entries(tm).sort((a,b)=>b[1].s-a[1].s)
-        .map(([t,d])=>`<tr><td>${esc(t)}</td><td>${d.n}</td><td>฿${fmt(d.s)}</td><td class="profit-pos">฿${fmt(d.p)}</td></tr>`).join('')||'<tr><td colspan="4" class="text-muted text-center">ไม่มีข้อมูล</td></tr>';
+        .map(([t,d])=>`<tr><td>${esc(t)}</td><td>${d.n}</td><td>เธฟ${fmt(d.s)}</td><td class="profit-pos">เธฟ${fmt(d.p)}</td></tr>`).join('')||'<tr><td colspan="4" class="text-muted text-center">เนเธกเนเธกเธตเธเนเธญเธกเธนเธฅ</td></tr>';
 
     // Expense by type
     const em={};
     exps.forEach(e=>{ if(!em[e.type]) em[e.type]={n:0,a:0}; em[e.type].n++; em[e.type].a+=e.amount; });
     g('rpt-exp-type').innerHTML = Object.entries(em).sort((a,b)=>b[1].a-a[1].a)
-        .map(([t,d])=>`<tr><td>${esc(t)}</td><td>${d.n}</td><td class="text-danger">฿${fmt(d.a)}</td></tr>`).join('')||'<tr><td colspan="3" class="text-muted text-center">ไม่มีข้อมูล</td></tr>';
+        .map(([t,d])=>`<tr><td>${esc(t)}</td><td>${d.n}</td><td class="text-danger">เธฟ${fmt(d.a)}</td></tr>`).join('')||'<tr><td colspan="3" class="text-muted text-center">เนเธกเนเธกเธตเธเนเธญเธกเธนเธฅ</td></tr>';
 
     g('rpt-results').style.display='';
 }
 
-// ─── DELETE ───────────────────────────────────────────────
+// โ”€โ”€โ”€ DELETE โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€
 async function delRow(type, row) {
-    if (!confirm('ต้องการลบรายการนี้?')) return;
+    if (!confirm('เธ•เนเธญเธเธเธฒเธฃเธฅเธเธฃเธฒเธขเธเธฒเธฃเธเธตเน?')) return;
     const shMap = { stock:SH.stock, sales:SH.sales, expenses:SH.expenses, pawn:SH.pawn, repair:SH.repair };
     const colMap = { stock:'J', sales:'J', expenses:'F', pawn:'J', repair:'L' };
     loading(true);
     try {
         await shClear(`${shMap[type]}!A${row}:${colMap[type]}${row}`);
-        showToast('ลบรายการเรียบร้อย ✅');
+        showToast('เธฅเธเธฃเธฒเธขเธเธฒเธฃเน€เธฃเธตเธขเธเธฃเนเธญเธข โ…');
         await loadAll();
         const page = document.querySelector('.page-section.active')?.id?.replace('page-','');
         const renders = { stock:renderStock, sales:renderSales, expenses:renderExpenses, pawn:renderPawn, repair:renderRepair, dashboard:renderDashboard };
         if (page && renders[page]) renders[page]();
         renderDashboard();
-    } catch(e) { showToast('เกิดข้อผิดพลาด: '+e.message,'danger'); }
+    } catch(e) { showToast('เน€เธเธดเธ”เธเนเธญเธเธดเธ”เธเธฅเธฒเธ”: '+e.message,'danger'); }
     loading(false);
 }
 
-// ─── UTILS ────────────────────────────────────────────────
+// โ”€โ”€โ”€ UTILS โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€
 const g = id => document.getElementById(id);
 const setText = (id,v) => { const e=g(id); if(e) e.textContent=v; };
 const setHtml = (id,v) => { const e=g(id); if(e) e.innerHTML=v; };
 const sum = (arr,k) => arr.reduce((a,i)=>a+(+i[k]||0),0);
 const fmt = n => (Math.round(n*100)/100).toLocaleString('th-TH');
 const esc = s => String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-function sName(s) { if(s=='1') return CFG.shop1; if(s=='2') return CFG.shop2; if(s==='ทั้งสอง') return 'ทั้งสอง'; return s||'-'; }
+function sName(s) { if(s=='1') return CFG.shop1; if(s=='2') return CFG.shop2; if(s==='เธ—เธฑเนเธเธชเธญเธ') return 'เธ—เธฑเนเธเธชเธญเธ'; return s||'-'; }
 function sBadge(s) { if(s=='1') return 'badge-s1'; if(s=='2') return 'badge-s2'; return 'badge-both'; }
 function thDate(d) {
     if (!d) return '-';
     const [y,m,day] = String(d).split('-');
-    const mo = ['','ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'];
+    const mo = ['','เธก.เธ.','เธ.เธ.','เธกเธต.เธ.','เน€เธก.เธข.','เธ.เธ.','เธกเธด.เธข.','เธ.เธ.','เธช.เธ.','เธ.เธข.','เธ•.เธ.','เธ.เธข.','เธ.เธ.'];
     return `${+day} ${mo[+m]} ${+y+543}`;
 }
 function loading(show) { g('loading-overlay').style.display = show?'flex':'none'; }
@@ -1423,6 +1430,106 @@ function onStoreChange() {
     const renders = { dashboard:renderDashboard, stock:renderStock, sales:renderSales, expenses:renderExpenses, pawn:renderPawn, repair:renderRepair };
     if (page && renders[page]) renders[page]();
 }
+
+// โ”€โ”€โ”€ CLAIM โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€โ”€
+async function ensureClaimColumn() {
+    try {
+        const header = await shGet(`${SH.stock}!A1:K1`);
+        if (!header || !header[0] || !header[0][10]) {
+            await shUpdate(`${SH.stock}!K1`, [['เธเธณเธเธงเธเน€เธเธฅเธก']]);
+        }
+    } catch(e) {}
+}
+
+function claimItem(row) {
+    const s = DB.stock.find(x => x.row === row);
+    if (!s) return;
+    g('claim-product-name').textContent = s.name + (s.brand ? ' ' + s.brand : '');
+    const sellable = s.qty - s.claimQty;
+    g('claim-available').textContent = sellable;
+    g('claim-row').value = row;
+    g('claim-qty-input').value = 1;
+    new bootstrap.Modal(g('claimModal')).show();
+}
+
+async function saveClaimItem() {
+    const row = +g('claim-row').value;
+    const s = DB.stock.find(x => x.row === row);
+    const qty = +g('claim-qty-input').value || 0;
+    if (!s || qty <= 0) { showToast('เธเธฃเธธเธ“เธฒเธเธฃเธญเธเธเธณเธเธงเธ', 'warning'); return; }
+    const sellable = s.qty - s.claimQty;
+    if (qty > sellable) { showToast(`เธเธณเธเธงเธเน€เธเธดเธเธ—เธตเนเธเธฒเธขเนเธ”เน (เน€เธซเธฅเธทเธญ ${sellable})`, 'warning'); return; }
+    const newClaimQty = s.claimQty + qty;
+    loading(true);
+    try {
+        await shUpdate(`${SH.stock}!K${row}`, [[newClaimQty]]);
+        showToast(`เน€เธเธฅเธก ${qty} เธเธดเนเธ เน€เธฃเธตเธขเธเธฃเนเธญเธข โ…`);
+        bootstrap.Modal.getInstance(g('claimModal')).hide();
+        await loadAll(); renderStock();
+    } catch(e) { showToast('เน€เธเธดเธ”เธเนเธญเธเธดเธ”เธเธฅเธฒเธ”: ' + e.message, 'danger'); }
+    loading(false);
+}
+
+function receiveClaimItem(row) {
+    const s = DB.stock.find(x => x.row === row);
+    if (!s || s.claimQty <= 0) { showToast('เนเธกเนเธกเธตเธฃเธฒเธขเธเธฒเธฃเธฃเธญเน€เธเธฅเธก', 'warning'); return; }
+    g('rclaim-product-name').textContent = s.name + (s.brand ? ' ' + s.brand : '');
+    g('rclaim-pending').textContent = s.claimQty;
+    g('rclaim-row').value = row;
+    g('rclaim-qty-input').value = s.claimQty;
+    new bootstrap.Modal(g('receiveClaimModal')).show();
+}
+
+async function saveReceiveClaim() {
+    const row = +g('rclaim-row').value;
+    const s = DB.stock.find(x => x.row === row);
+    const qty = +g('rclaim-qty-input').value || 0;
+    if (!s || qty <= 0) { showToast('เธเธฃเธธเธ“เธฒเธเธฃเธญเธเธเธณเธเธงเธ', 'warning'); return; }
+    if (qty > s.claimQty) { showToast(`เธเธณเธเธงเธเน€เธเธดเธ (เธฃเธญเน€เธเธฅเธก ${s.claimQty})`, 'warning'); return; }
+    const newClaimQty = s.claimQty - qty;
+    loading(true);
+    try {
+        await shUpdate(`${SH.stock}!K${row}`, [[newClaimQty]]);
+        showToast(`เธฃเธฑเธเธเธทเธเน€เธเธฅเธก ${qty} เธเธดเนเธ เน€เธฃเธตเธขเธเธฃเนเธญเธข โ…`);
+        bootstrap.Modal.getInstance(g('receiveClaimModal')).hide();
+        await loadAll(); renderStock();
+    } catch(e) { showToast('เน€เธเธดเธ”เธเนเธญเธเธดเธ”เธเธฅเธฒเธ”: ' + e.message, 'danger'); }
+    loading(false);
+}
+
+function restockItem(row) {
+    const s = DB.stock.find(x => x.row === row);
+    if (!s) return;
+    g('restock-product-name').textContent = s.name + (s.brand ? ' ' + s.brand : '');
+    g('restock-current-qty').textContent = s.qty;
+    g('restock-row').value = row;
+    g('restock-qty-input').value = '';
+    g('restock-cost-input').value = '';
+    new bootstrap.Modal(g('restockModal')).show();
+}
+
+async function saveRestock() {
+    const row = +g('restock-row').value;
+    const s = DB.stock.find(x => x.row === row);
+    const addQty = +g('restock-qty-input').value || 0;
+    const newCost = +g('restock-cost-input').value || 0;
+    if (!s || addQty <= 0) { showToast('เธเธฃเธธเธ“เธฒเธเธฃเธญเธเธเธณเธเธงเธเธ—เธตเนเธชเธฑเนเธเธเธทเนเธญ', 'warning'); return; }
+    const newQty = s.qty + addQty;
+    loading(true);
+    try {
+        if (newCost > 0) {
+            await shUpdate(`${SH.stock}!E${row}:G${row}`, [[newCost, s.price, newQty]]);
+        } else {
+            await shUpdate(`${SH.stock}!G${row}`, [[newQty]]);
+        }
+        showToast(`เธชเธฑเนเธเธเธทเนเธญเน€เธเธดเนเธก ${addQty} เธเธดเนเธ เน€เธฃเธตเธขเธเธฃเนเธญเธข โ…`);
+        bootstrap.Modal.getInstance(g('restockModal')).hide();
+        await loadAll(); renderStock();
+    } catch(e) { showToast('เน€เธเธดเธ”เธเนเธญเธเธดเธ”เธเธฅเธฒเธ”: ' + e.message, 'danger'); }
+    loading(false);
+}
+
 </script>
 </body>
 </html>
+
