@@ -868,6 +868,7 @@ function initAuth() {
 }
 
 async function onSignedIn() {
+            g('setup-screen').style.display = 'none';
     try {
         const ui = await api('https://www.googleapis.com/oauth2/v3/userinfo');
         g('user-email').textContent = ui.email || '';
