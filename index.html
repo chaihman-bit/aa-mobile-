@@ -600,17 +600,21 @@
                             <label class="form-label">อาการ / งานที่ซ่อม</label>
                             <input type="text" class="form-control" id="rp-symptom" placeholder="เช่น จอแตก, แบตเสื่อม, น้ำเข้า, ไอซีชาร์จ...">
                         </div>
-                        <div class="col-4 col-md-2">
+                        <div class="col-6 col-md-2">
                             <label class="form-label">ค่าแรง (฿)</label>
                             <input type="number" class="form-control" id="rp-labor" placeholder="0" oninput="calcRepTotal()">
                         </div>
-                        <div class="col-4 col-md-2">
+                        <div class="col-6 col-md-2">
                             <label class="form-label">ค่าอะไหล่ (฿)</label>
                             <input type="number" class="form-control" id="rp-parts" placeholder="0" oninput="calcRepTotal()">
                         </div>
-                        <div class="col-4 col-md-2">
-                            <label class="form-label">รวม (฿)</label>
+                        <div class="col-6 col-md-2">
+                            <label class="form-label">ทุนรวม (฿)</label>
                             <input type="number" class="form-control bg-light fw-bold" id="rp-total" readonly>
+                        </div>
+                        <div class="col-6 col-md-2">
+                            <label class="form-label">ราคาค่าซ่อม (฿)</label>
+                            <input type="number" class="form-control border-primary fw-bold" id="rp-price" placeholder="ตกลงกับลูกค้า">
                         </div>
                         <div class="col-6 col-md-2">
                             <label class="form-label">ประกัน (เดือน)</label>
@@ -652,7 +656,7 @@
                 </div>
                 <div class="table-responsive">
                     <table class="table table-hover mb-0">
-                        <thead><tr><th>วันที่รับ</th><th>ลูกค้า</th><th>เบอร์</th><th>รุ่น</th><th>อาการ</th><th>รวม</th><th>ประกัน</th><th>ร้าน</th><th>สถานะ</th><th></th></tr></thead>
+                        <thead><tr><th>วันที่รับ</th><th>ลูกค้า</th><th>เบอร์</th><th>รุ่น</th><th>อาการ</th><th>ทุน</th><th>ค่าซ่อม</th><th>ประกัน</th><th>ร้าน</th><th>สถานะ</th><th></th></tr></thead>
                         <tbody id="rp-tbody"></tbody>
                     </table>
                 </div>
@@ -1093,7 +1097,7 @@ async function ensureSheets() {
         [SH.sales]:    [['วันที่','เลขที่','ชื่อสินค้า','ประเภท','ร้าน','จำนวน','ราคาทุน/ชิ้น','ราคาขาย','กำไร','หมายเหตุ','ประเภทรายได้']],
         [SH.expenses]: [['วันที่','รายการ','ประเภท','ร้าน','จำนวนเงิน','หมายเหตุ']],
         [SH.pawn]:     [['วันที่','ประเภท','ชื่อลูกค้า','เบอร์โทร','รายการ','ราคา','วันครบกำหนด','ร้าน','สถานะ','หมายเหตุ']],
-        [SH.repair]:   [['วันที่รับ','ชื่อลูกค้า','เบอร์โทร','รุ่น','อาการ','ค่าแรง','ค่าอะไหล่','รวม','ประกัน(เดือน)','ร้าน','สถานะ','หมายเหตุ']],
+        [SH.repair]:   [['วันที่รับ','ชื่อลูกค้า','เบอร์โทร','รุ่น','อาการ','ค่าแรง','ค่าอะไหล่','ทุนรวม','ประกัน(เดือน)','ร้าน','สถานะ','หมายเหตุ','ราคาค่าซ่อม']],
         [SH.stockLog]: [['วันที่-เวลา','ID','ชื่อสินค้า','ประเภท','ร้าน','ก่อน','เปลี่ยน','หลัง','อ้างอิง']]
     };
     for (const sh of missing) if (hdrs[sh]) await shAppend(sh, hdrs[sh]);
@@ -1102,13 +1106,13 @@ async function ensureSheets() {
 async function loadAll() {
     const [stk,sal,exp,pw,rp] = await Promise.all([
         shGet(`${SH.stock}!A2:K`), shGet(`${SH.sales}!A2:K`), shGet(`${SH.expenses}!A2:F`),
-        shGet(`${SH.pawn}!A2:J`), shGet(`${SH.repair}!A2:L`)
+        shGet(`${SH.pawn}!A2:J`), shGet(`${SH.repair}!A2:M`)
     ]);
     DB.stock   = stk.map((r,i) => ({ row:i+2, id:r[0]||'', name:r[1]||'', brand:r[2]||'', type:r[3]||'', cost:+r[4]||0, price:+r[5]||0, qty:+r[6]||0, store:r[7]||'', note:r[8]||'', date:r[9]||'', claimQty:+r[10]||0 }));
     DB.sales   = sal.map((r,i) => ({ row:i+2, date:r[0]||'', ref:r[1]||'', name:r[2]||'', type:r[3]||'', store:r[4]||'', qty:+r[5]||0, cost:+r[6]||0, price:+r[7]||0, profit:+r[8]||0, note:r[9]||'', incomeType:r[10]||'สินค้า' }));
     DB.expenses= exp.map((r,i) => ({ row:i+2, date:r[0]||'', name:r[1]||'', type:r[2]||'', store:r[3]||'', amount:+r[4]||0, note:r[5]||'' }));
     DB.pawn    = pw.map((r,i)  => ({ row:i+2, date:r[0]||'', type:r[1]||'', customer:r[2]||'', phone:r[3]||'', item:r[4]||'', price:+r[5]||0, due:r[6]||'', store:r[7]||'', status:r[8]||'ค้างอยู่', note:r[9]||'' }));
-    DB.repair  = rp.map((r,i)  => ({ row:i+2, date:r[0]||'', customer:r[1]||'', phone:r[2]||'', model:r[3]||'', symptom:r[4]||'', labor:+r[5]||0, parts:+r[6]||0, total:+r[7]||0, warranty:r[8]||'0', store:r[9]||'', status:r[10]||'กำลังซ่อม', note:r[11]||'' }));
+    DB.repair  = rp.map((r,i)  => ({ row:i+2, date:r[0]||'', customer:r[1]||'', phone:r[2]||'', model:r[3]||'', symptom:r[4]||'', labor:+r[5]||0, parts:+r[6]||0, total:+r[7]||0, warranty:r[8]||'0', store:r[9]||'', status:r[10]||'กำลังซ่อม', note:r[11]||'', repairPrice:+r[12]||0 }));
     populateSalePicker();
 }
 
@@ -1406,7 +1410,7 @@ function renderPawn() {
     }).sort((a,b)=>b.date.localeCompare(a.date));
 
     g('pw-tbody').innerHTML = items.length===0
-        ? '<tr><td colspan="10" class="text-center text-muted py-4">ไม่พบรายการ</td></tr>'
+        ? '<tr><td colspan="11" class="text-center text-muted py-4">ไม่พบรายการ</td></tr>'
         : items.map(p => {
             const overdue = p.due && p.due<today && p.status==='ค้างอยู่';
             const sc = p.status==='ค้างอยู่'?(overdue?'bg-danger text-white':'bg-warning text-dark'):p.status==='ไถ่คืนแล้ว'?'bg-success text-white':'bg-secondary text-white';
@@ -1455,9 +1459,10 @@ async function saveRepair() {
     const labor = +g('rp-labor').value||0, parts = +g('rp-parts').value||0;
     loading(true);
     try {
-        await shAppend(SH.repair, [[date,customer,g('rp-phone').value,model,g('rp-symptom').value,labor,parts,labor+parts,g('rp-warranty').value,g('rp-store').value,'กำลังซ่อม',g('rp-note').value]]);
+        const repairPrice = +g('rp-price').value||0;
+        await shAppend(SH.repair, [[date,customer,g('rp-phone').value,model,g('rp-symptom').value,labor,parts,labor+parts,g('rp-warranty').value,g('rp-store').value,'กำลังซ่อม',g('rp-note').value,repairPrice]]);
         showToast('บันทึกงานซ่อมเรียบร้อย ✅');
-        setVal(['rp-customer','rp-phone','rp-model','rp-symptom','rp-labor','rp-parts','rp-total','rp-note'],'');
+        setVal(['rp-customer','rp-phone','rp-model','rp-symptom','rp-labor','rp-parts','rp-total','rp-price','rp-note'],'');
         g('rp-warranty').value='0';
         await loadAll(); renderRepair(); renderDashboard();
     } catch(e) { showToast('เกิดข้อผิดพลาด: '+e.message,'danger'); }
@@ -1484,7 +1489,8 @@ function renderRepair() {
                 <td class="small">${esc(r.phone)}</td>
                 <td class="small">${esc(r.model)}</td>
                 <td class="small">${esc(r.symptom)}</td>
-                <td class="fw-semibold">฿${fmt(r.total)}</td>
+                <td class="text-muted small">฿${fmt(r.total)}</td>
+                <td class="fw-semibold text-primary">฿${fmt(r.repairPrice||r.total)}</td>
                 <td><span class="badge bg-light text-dark border small">${wt}</span></td>
                 <td><span class="badge ${sBadge(r.store)} px-2">${sName(r.store)}</span></td>
                 <td>
@@ -1508,8 +1514,11 @@ async function setRepairStatus(row, status) {
             if (r && r.total > 0) {
                 const today = new Date().toISOString().split('T')[0];
                 const ref = 'R'+Date.now().toString().slice(-6);
-                await shAppend(SH.sales, [[today,ref,r.model,'ซ่อม',r.store,1,0,r.total,r.total,r.symptom,'ซ่อม']]);
-                showToast('บันทึกรายได้ค่าซ่อม ฿'+fmt(r.total)+' ✅');
+                const price = r.repairPrice || r.total;
+                const cost = r.labor + r.parts;
+                const profit = price - cost;
+                await shAppend(SH.sales, [[today,ref,r.model,'ซ่อม',r.store,1,cost,price,profit,r.symptom,'ซ่อม']]);
+                showToast('บันทึกรายได้ค่าซ่อม ฿'+fmt(price)+' (กำไร ฿'+fmt(profit)+') ✅');
             }
         }
         await loadAll(); renderRepair(); renderDashboard();
@@ -1568,7 +1577,7 @@ function generateReport() {
 async function delRow(type, row) {
     if (!confirm('ต้องการลบรายการนี้?')) return;
     const shMap = { stock:SH.stock, sales:SH.sales, expenses:SH.expenses, pawn:SH.pawn, repair:SH.repair };
-    const colMap = { stock:'J', sales:'J', expenses:'F', pawn:'J', repair:'L' };
+    const colMap = { stock:'J', sales:'J', expenses:'F', pawn:'J', repair:'M' };
     loading(true);
     try {
         await shClear(`${shMap[type]}!A${row}:${colMap[type]}${row}`);
